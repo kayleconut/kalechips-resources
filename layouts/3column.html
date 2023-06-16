@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>3 column layout</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+
+/* Change colors here */
+:root {
+	--background:#b1e1e2; /*Main background color*/
+	--color:#333; /*Body text color*/
+
+	--header:#95ccd4; /*Header background color*/
+
+	/* CONTENT COLORS */
+	--mainbg: #FFF; /*Content background color*/
+	--linkcolor: #1e6070; /*Body link color*/
+	--linkhover: #ea9128; /*Body link hover color*/
+
+	--borders: #ea9128; /*Border for header 1*/
+
+	--formbg:#f5f5f5; /*Background for text boxes/dropdown menus*/
+	--formcolor:#51747b; /*Color for text boxes/dropdown menus*/
+	--buttonbg:#cbe6e6; /*Background for submit buttons*/
+	--buttoncolor:#51747b; /*Color for submit buttons*/
+
+	/* MENU COLORS */
+	--navcolor:#333; /*Menu text color*/
+	--navbg:#FFF; /*Menu background color*/
+
+	--navtextlink:#1e6070; /*Sidebar text link color*/
+	--navtexthover:#ea9128; /*Sidebar text link hover*/
+
+	--navlink: #51747b; /*Menu link color*/
+	--navlinkbg: #cbe6e6; /*Menu link background*/
+	--navhover: #ea9128; /*Menu link hover color*/
+	--navhoverbg: #FFF; /*Menu link hover background*/
+	
+	/* FOOTER COLORS */
+	--footercolor:#333; /*Footer text color*/
+	--footerbg:#FFF; /*Footer background color*/
+
+	--footerlink:#1e6070; /*Footer link color*/
+	--footerhover:#ea9128; /*Footer background color*/
+}
+
+/* Reset margins */
+
+* { margin:0; padding:0; text-decoration:none;}
+
+/* Making sure images don't break anything */
+
+img {
+	max-width:95%;
+	margin:5px;
+}
+
+/* Body styling */
+
+body {
+	font:11.5pt sans-serif;
+	color:var(--color);
+	background:var(--background);
+}
+
+/* Wrapper for everything */
+
+#container {
+	width:80%;
+	max-width:900px;
+	margin:10px auto;
+	padding:10px;
+}
+
+/* Header styling */
+
+header {
+	width:100%;
+	height:150px; /* You can change the height */
+	background: url(https://placehold.co/900x150) no-repeat center var(--header); /*The url field is where you add a header image*/
+	background-size:cover;
+	margin-bottom:10px;
+}
+
+/* Wrapper for columns */
+
+#columns {
+	display:flex;
+	flex-wrap:wrap;
+}
+
+/* Content styling */
+
+main {
+	width:calc(60% - 30px);
+	padding:15px;
+	background:var(--mainbg);
+	margin:0px 10px 0px 10px;
+}
+
+/* Headers */
+
+main h1 {
+	font:22pt Georgia, serif;
+	border-bottom:1px solid var(--borders);
+}
+
+main h2 {
+	font:18pt Georgia, serif;
+}
+
+main h3 {
+	font:16pt Georgia, serif;
+}
+
+/* Paragraphs and links */
+
+main p {
+	margin:10px 0px 10px 0px;
+	line-height:1.5;
+}
+
+main a {
+	color:var(--link);
+	text-decoration:none;
+}
+
+main a:hover {
+	color:var(--linkhover);
+	text-decoration:underline;
+}
+
+/* Form elements */
+
+main input, textarea, select {
+	color:var(--formcolor);
+	background:var(--formbg);
+	font:14px Georgia, serif;
+	border:1px solid;
+	padding:5px;
+}
+
+main button {
+	color:var(--buttoncolor);
+	background:var(--buttonbg);
+	font:14px Georgia, serif;
+	border:1px solid;
+	padding:5px;
+}
+
+/* Lists */
+
+main ul { 
+	list-style: inside;
+	margin:5px;
+}
+
+main ul li ul {
+	margin-left:15px;
+}
+
+/* Styling for the sidebars */
+
+nav {
+	padding:10px;
+	background:var(--navbg);
+	width:calc(20% - 30px);
+}
+
+nav section {
+	margin-bottom:10px;
+}
+
+/* Styling for text blocks in sidebars */
+
+nav .text p {
+	color:var(--navcolor);
+	margin:5px 0px 5px 0px;
+	line-height:1.4;
+	font-size:10.5pt;
+
+}
+
+nav .text a {
+	color:var(--navtextlink);
+	text-decoration:none;
+}
+
+nav .text a:hover {
+	color:var(--navtexthover);
+	text-decoration:underline;
+}
+
+/* Styling for nav links */
+
+nav ul {
+	list-style:none;
+	margin:0;
+}
+
+nav li a {
+	display:block;
+	background:var(--navlinkbg);
+	color:var(--navlink);
+	margin:0px 0px 2px 0px;
+	text-decoration:none;
+	padding:2px;
+}
+
+nav li a:hover {
+	background:var(--navhoverbg);
+	color:var(--navhover);
+	text-decoration:none;
+}
+
+nav h1 {
+	font:20px Georgia, serif;
+	color:var(--navcolor)
+}
+
+/* Footer styling */
+
+footer {
+	padding:15px;
+	text-align:center;
+	margin:10px 0px 0px 0px;
+	background:var(--footerbg);
+	color:var(--footercolor);
+}
+
+footer a {
+	color:var(--footerlink);
+	text-decoration:none;
+}
+
+footer a:hover {
+	color:var(--footerlinkhover);
+	text-decoration:underline;
+}
+
+@media screen and (max-width: 799px) {
+	body { font-size:11pt; }
+
+	#container {
+		width: calc(100% - 20px);
+	}
+	
+	/*You can change the order of the boxes here using the order tags. 1 is first, etc*/
+
+	main {
+		flex-grow:1;
+		order:1;
+	}
+
+	#left {
+		order:2;
+		margin:0px 0px 10px 0px;
+	}
+	
+	#right {
+		order:3;
+	}
+	
+	nav {
+		width:100%;
+		flex-grow:1;
+		display:grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-gap:5px;
+	}
+	
+	main {
+		margin:0px 0px 10px 0px;
+	}
+}
+
+</style>
+
+</head>
+<body>
+<div id="container">
+<!-- Header -->
+<header></header>
+
+<div id="columns">
+<!--Begin left sidebar -->
+<nav id="left">
+
+<!-- Copy the entire code in the section tags for new link blocks-->
+<section>
+<h1>Header</h1>
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+<section>
+<h1>Header</h1>
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+<section>
+<h1>Header</h1>
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+</nav>
+
+<!--Begin main content-->
+<main>
+<h1>Header</h1>
+
+<p>The 3-column layout is a classic because it's a simple and effective way to cram a lot of links into one layout. Translating all those links to a smaller screen is a bit of an ordeal, and I find that the usual method of appending the sidebars to the top and bottom of the content is clunky and takes up way too much space. I tried to fix this by having the columns collapse into columns on mobile instead. I moved both menus below the content area so you don't have to scroll past links every time you load a new page, but you can change that by messing with the flexbox order.</p>
+
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+
+<p><a href="">Here is a link.</a> Here is what a form looks like:</p>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+
+</main>
+
+<!--Begin right sidebar-->
+<nav id="right">
+
+<!-- Use section class="text" for blocks of text-->
+<section class="text">
+<h1>Header</h1>
+<p>Arthropods are invertebrate animals with an exoskeleton, a segmented body, and paired jointed appendages. Arthropods form the phylum Arthropoda.</p>
+</section>
+
+<!-- Copy the entire code in the section tags for new link blocks-->
+<section>
+<h1>Header</h1>
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+<section>
+<h1>Header</h1>
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+</nav>
+
+</div>
+
+<!--Begin footer-->
+<footer>
+<p>Whatever you put in a footer lol</p>
+</footer>
+
+</div>
+</body>
+</html>

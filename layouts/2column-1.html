@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>2 column layout</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+/*Colors*/
+:root {
+	/* If you want a transparent background, set the value to none */
+	
+	--background: #A1B641; /*Main background color*/
+	--textcolor: #444; /*Body text color*/
+	
+	--mainbg: #f2f2f2; /*Content background color*/
+	--mainlink: #607c00; /*Content link color*/
+	--mainlinkhover: #5d1d5f; /*Content link hover color*/
+	
+	/*Header text colors*/
+	--h1color: #444;
+	--h2color: #444;
+	--h3color: #444;
+	--h4color: #607c00;
+	
+	--navbg: #f2f2f2; /*Sidebar background color*/
+	--navheader: #444; /*Sidebar header color*/
+	--navborder: #607c00; /*If you don't want a border under the headers in the menu, change this to none*/
+	
+	--navlink: #607c00; /*Sidebar link color*/
+	--navlinkbg: none; /*Sidebar link background*/
+	--navlinkhover: #FFF; /*Sidebar link hover color*/
+	--navlinkbghover: #5d1d5f; /*Sidebar link hover background*/
+	
+	--formbg: #ebebeb; /*Form element background*/
+	--formtext:#666; /*Form element text color*/
+	
+}
+
+* { margin: 0; padding: 0; }
+
+body { 
+	background: var(--background); 
+	color: var(--textcolor);
+	font: 11pt Tahoma, sans-serif; 
+}
+
+#container { 
+	max-width: 800px;
+	width:80%;
+	padding: 10px;
+	margin: 25px auto;
+}
+
+header {
+	height: 150px; /*You can change the height of your header image*/
+	background:url(https://placehold.co/800x150) center no-repeat; /*Put your background image in the url field*/
+	background-size:cover;
+	margin-bottom:10px;
+}
+
+#columns {
+	display: flex;
+	flex-wrap:wrap;
+}
+
+main { 
+	padding:15px;
+	background:var(--mainbg);
+	width:calc(75% - 30px);
+	margin-left:15px;
+}
+
+main a { 
+	color: var(--mainlink); 
+}
+
+main a:hover { 
+	color: var(--mainlinkhover); 
+}
+
+main p {
+	margin:10px 0px 10px 0px;
+	line-height:1.4;
+}
+
+main h1 {
+	font: 22pt Georgia, serif; 
+	color: var(--h1color);
+}
+
+main h2 { 
+	font: 17pt sans-serif;
+	color: var(--h2color);
+}
+
+main h3 { 
+	font: 14pt sans-serif; 
+	color: var(--h3color);
+}
+
+main h4 {
+	font-size:10pt;
+	font-weight:normal;
+	font-style:italic;
+	color: var(--h4color);
+}
+
+main img { 
+	margin: 5px; 
+	max-width:90%;
+}
+
+main ul { 
+	list-style: inside; 
+}
+
+main ul li ul {
+	margin-left:15px;
+}
+
+main input, textarea, select, button { 
+	background: var(--formbg); 
+	color: var(--formtext); 
+	border: 1px solid; 
+	font: 10pt Tahoma, sans-serif;
+	padding: 5px; 
+	margin: 5px;
+}
+
+nav {
+	width: calc(25% - 15px);
+}
+
+.item {
+	padding:15px;
+	background:var(--navbg);
+	margin:0px 0px 15px 0px;
+}
+
+nav h1 { 
+	font: 14pt Georgia, 'Times New Roman', serif; 
+	border-bottom: 1px solid var(--navborder);
+	color:var(--navheader);
+}
+
+nav ul {
+	list-style:none;
+	display:inline;
+	margin:0;
+}
+
+nav ul li {
+	display:block;
+}
+
+nav a { 
+	display: block; 
+	text-decoration: none; 
+	padding:5px;
+	color: var(--navlink);
+	background:var(--navlinkbg);
+}
+
+nav a:hover { 
+	color: var(--navlinkhover);
+	background: var(--navlinkbghover);
+}
+
+footer {
+	margin-top:15px;
+	background:var(--mainbg);
+	padding:15px;
+	text-align:center;
+}
+
+@media screen and (max-width:500px) {
+	body { font-size:10pt;}
+
+	#container {
+		width:calc(100% - 20px);
+		margin-top:0px;
+	}
+	
+	main {
+		width:calc(75% - 40px);
+		margin-left:10px;
+	}
+	
+	nav {
+		width:25%;
+	}
+
+	nav .item {
+		padding:10px;
+	}
+}
+</style>
+</head>
+<body>
+<div id="container">
+
+<!--Header-->
+<header></header>
+
+<div id="columns">
+
+<!--Begin sidebar-->
+<nav>
+
+<!--Copy the entire code in the section tags for a new block-->
+<section class="item">
+<h1>Header</h1> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+<section class="item">
+<h1>Header</h1> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+
+<section class="item">
+<h1>Header</h1> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</section>
+</nav>
+
+<!--Begin content-->
+<main>
+<h1>Header</h1>
+<p>This is the skeleton of the first layout I made for this website. I ended up with more pages than would be reasonable to put on a sidebar, so I scrapped the 2-column layout for the single column thing you see now. But it still works, so I figured I'd clean it up and release it, so here we are!</p>
+
+<h2>Mobile compatibility</h2>
+<p>This version of the layout maintains the column layout across screen sizes. For the version that turns into 1 column on small screens, go <a href="2column-2.html">here.</a></p>
+
+<h2>Formatting</h2>
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+</main>
+
+</div>
+
+<!--Begin footer-->
+<footer>Whatever goes in a footer</footer>
+</div>

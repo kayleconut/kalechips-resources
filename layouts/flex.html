@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Flex layout</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+/* The following CSS applies on all screen sizes */
+
+/* Colors */
+:root {
+	/* Main colors */
+	--background:#5a094a;
+	--color:#2f152f;
+	--block:#f9f8f9; /* Background color for the grid blocks in the content */
+
+	--link:#5a094a;
+	--linkhover:#a649a9;
+
+	--h1:#2f152f;
+	--h2:#2f152f;
+	--h3:#2f152f;
+	--h4:#2f152f;
+
+	/* Sidebar colors */
+	--sidebar:#f9f8f9;
+	--sidebarcolor:#2f152f;
+	--title: #5a094a;
+	--sidebarlink: #5a094a;
+	--sidebarlinkhover:#a649a9;
+
+	/* Menu colors */
+	--menubg:#2c1a30;
+	--menucolor:#e0aee2;
+	--menubghover:#e0aee2;
+	--menucolorhover:#2c1a30;
+}
+
+* { margin:0; padding:0; }
+
+/* Main body styling */
+body {
+	background-color:var(--background);
+	background-attachment:fixed;
+	font:12pt Verdana, sans-serif;
+	color:var(--color);
+}
+
+/* Rounded corners - feel free to get rid of this or change it */
+
+main section, #sidebar {
+	border-radius:5px;
+}
+
+/* Sidebar styling */
+
+#sidebar {
+	text-align:center;
+	background: var(--sidebar);
+	color: var(--sidebarcolor);
+	padding:10px;
+	font-size:12pt;
+}
+
+#sidebar h1 {
+	color:var(--title);
+	font:22pt serif;
+	margin:8px;
+}
+
+#sidebar p a {
+	color:var(--sidebarlink);
+	transition:0.5s ease;
+}
+
+#sidebar p a:hover {
+	color:var(--sidebarlinkhover);
+	transition:0.5s ease;
+}
+
+.icon img {
+	border-radius:100px; /* This makes the icon a circle - feel free to remove or reduce for a rectangle or square */
+	max-width:95%; /* This can be changed to make the icon smaller; you might have to mess with the border radius too */
+}
+
+/* Styling for the menu */
+
+nav {
+	font:14pt Georgia, serif;
+	width:100%;
+}
+
+nav ul {
+	list-style:none;
+}
+
+nav li a {
+	padding:7px;
+	background:var(--menubg);
+	color:var(--menucolor);
+	text-decoration:none;
+	transition:0.5s ease;
+}
+
+nav li a:hover {
+	background: var(--menubghover);
+	color:var(--menucolorhover);
+	transition:0.5s ease;
+}
+
+/* Content styling */
+
+main {
+	margin-top:10px;
+}
+
+/* Styling for blocks */
+
+main section {
+	padding:15px;
+	background:var(--block);
+	margin-bottom:10px;
+}
+
+main h1 {
+	font:22pt serif;
+	color:var(--h1);
+}
+
+main h2 {
+	font:18pt serif;
+	color:var(--h2);
+}
+
+main h3 {
+	font:16pt serif;
+	color:var(--h3);
+}
+
+main h4 {
+	font:12pt serif;
+	font-style:italic;
+	color:var(--h4);
+}
+
+p {
+	line-height:1.5;
+	margin:10px 0 10px 0;
+}
+
+main a {
+	color:var(--link);
+	transition:0.5s ease;
+}
+
+main a:hover {
+	color:var(--linkhover);
+	transition:0.5s ease;
+}
+
+main ul {
+	list-style-position: outside;
+	margin:0px 0 0px 25px;
+}
+
+main ul li {
+	line-height:1.5;
+}
+
+main img {
+	max-width:100%;
+}
+
+main input, textarea, select, button { 
+	background: var(--block);  
+	color: var(--color);
+	font: 12pt Verdana, sans-serif; 
+	border: 1px solid; 
+	padding: 8px; 
+	margin: 2px;
+}
+
+/* The following CSS ONLY applies to mobile/small screens */
+
+/* Container styling */
+#container {
+	width: calc(100% - 20px);
+	padding:10px;
+	margin-top:10px;
+}
+
+#sidebar {
+	width: calc(100% - 20px);
+}
+
+nav li {
+	margin-bottom:15px;
+	display:inline-block;
+}
+
+/* The following CSS ONLY applies to desktop/big screens */
+
+@media screen and (min-width: 1024px) {
+	#container {
+		width:950px;
+		margin:40px auto;
+	}
+
+    #sidebar {
+        float:left;
+		width:200px;
+		position:fixed; /* Remove if you don't want the sidebar to stay in one place */
+    }
+
+	/* Make menu links into a column */
+
+	nav li {
+		display:block;
+		margin:0;
+	}
+
+	nav li a {
+		display:block;
+		width:186px;
+		border-bottom:1px solid;
+	}
+
+    main {
+		margin:0 0 10px 20px;
+		display:flex;
+		flex-wrap:wrap;
+		float:right;
+		width:720px;
+		gap:10px;
+    }
+
+	main section {
+		margin:0;
+	}
+
+	/* Defining grid blocks */
+
+	.full { flex: 0 0 calc(100% - 30px);}
+	.half { flex: 1 1 calc(50% - 40px); }
+	.third { flex: 1 1 calc(33% - 40px); }
+	.twothird { flex: 1 1 calc(66% - 40px); }
+	.quarter { flex: 1 1 calc(25% - 40px); }
+	.threequarter { flex: 1 1 calc(75% - 40px); }
+}
+</style>
+</head>
+<body>
+<div id="container">
+<div id="sidebar">
+
+<!-- An image can go here if you'd like, or just delete this line if you don't. It doesn't matter what size it is as long as it's square. -->
+<div class="icon"><img src="https://placehold.co/200x200" alt="" /></div>
+<h1>Title</h1>
+
+<!-- Navigation menu  -->
+<nav>
+<ul>
+	<li><a href="">Link</a></li>
+	<li><a href="">Longer link</a></li>
+	<li><a href="">Another link</a></li>
+	<li><a href="">Link</a></li>
+</ul>
+</nav>
+<p>Text can go here. You can also add <a href="">inline links</a>. It's best not to make this too long because this moves to the top of the page on mobile.</p>
+</div>
+
+<!-- Content area -->
+<main>
+<!-- Section tags must be used for blocks -->
+<section class="full">
+<h1>Header</h1>
+<p>This is the base framework that I use for my character pages. Its main feature is that it allows you to easily make a grid with varying element widths, which is ironically something much more easily accomplished with flexbox than grid. It's also a fairly good Tumblr knockoff layout if you're into that.</p>
+</section>
+
+<section class="full">
+<h2>Mobile compatibility</h2>
+<p>This layout uses mobile-first CSS, which means the main CSS is for smaller screens, while a @media tag defines the CSS for larger screens. I've marked out which CSS applies to which screen sizes in the code. </p>
+</section>
+
+<section class="half">
+<h2>Half-width section</h2>
+<p>This is a half-width section. All sections, regardless of their grid size, will take up the entire screen width on small screens (under 1024px wide). </p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>This is a quarter-width section. </p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>You can use 2 of these with a half-width section or 1 with a 3/4 width section.</p>
+</section>
+
+<section class="third">
+<h2>Third-width section</h2>
+<p>This is a third-width section.</p>
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+</section>
+
+<section class="twothird">
+<h2>2/3-width section</h2>
+<p>This is a 2/3-width section. <a href="">This is a link.</a></li>
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+</section>
+
+<section class="threequarter">
+<h2>3/4-width section</h2>
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+<p>This is a 3/4-width section.</p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>Are you bored yet?</p>
+</section>
+</main>
+</div>
+</body>
+</html>
