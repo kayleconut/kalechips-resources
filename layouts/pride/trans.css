@@ -125,7 +125,8 @@ p {
 
 p a, main li a {
     color:var(--link);
-    text-decoration:underline var(--linkborder);
+    text-decoration:underline;
+    text-decoration-color: var(--linkborder);
 }
 
 main a:hover, #sidebar p a:hover {
