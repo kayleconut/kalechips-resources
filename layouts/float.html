@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floaty layout</title>
+<style>
+:root {
+	--background:#eceeea;
+	--color:#444;
+	
+	--contentbg:#FFF;
+	
+	--link:#e07f51;
+	--linkhover:#524130;
+	
+	--formbg:#FFF;
+	--formcolor:#444;
+	
+	--boxcolor:#444;
+	--boxbg:#f2f2f2;
+	
+	--footercolor:#444;
+	--footerbg:#f2f2f2;
+	
+	--h1:#555;
+	--h1accent:#e07f51;
+	--h2:#444;
+	--h4bg:#e07f51;
+	--h4color:#FFF;
+	
+	--navh1:#444;
+	--navlink:#555;
+	--navlinkbg:#ccc;
+	--navlinkhover:#e07f51;
+	--navlinkhoverbg:none;
+	
+	--titlecolor:#666;
+	--titleaccent:#e07f51;
+}
+
+/*Body styling */
+
+body { 
+	background: var(--background); 
+	margin: auto; 
+	cursor: default; 
+	font: 10.5pt sans-serif; 
+	line-height: 1.5; 
+}
+
+/* Wrapper */
+
+#container { 
+	width: 680px; 
+	margin: 10px auto;
+	padding:15px;
+}
+
+/* Header styling */
+
+#title { 
+	font: 36pt Times New Roman, serif; 
+	text-transform: lowercase;  
+	color: var(--titlecolor); 
+	width:100%;
+}
+
+/* Gives your title an accent color */
+
+#title span { 
+	color: var(--titleaccent); 
+}
+
+/* Content styling */
+
+#content { 
+	width: 460px; 
+	padding: 5px; 
+	margin: 5px; 
+	float: left; 
+	color: var(--color); 
+	background: var(--contentbg);
+}
+
+/* Paragraphs and links */
+
+#content a { 
+	color: var(--link); 
+	text-decoration: none; 
+	border-bottom: 1px solid var(--color); 
+}
+
+#content a:hover { 
+	color: var(--linkhover); 
+}
+
+#content img { 
+	margin: 5px; 
+	max-width:95%;
+}
+
+#content p { 
+	margin: 10px 5px 10px 5px;  
+}
+
+/* Decorative content box */
+
+.box { 
+	background: var(--boxbg); 
+	color: var(--boxcolor); 
+	border: 1px solid var(--h1accent); 
+	display: block; 
+	padding: 10px; 
+	margin:15px;
+}
+
+/* Headers */
+
+#content h1 { 
+	font: 25pt Century Gothic, sans-serif; 
+	color: var(--h1); 
+	padding: 0px; 
+	margin: 0; 
+	letter-spacing: -1px; 
+	border-right: 30px solid var(--h1accent); 
+	border-bottom: 1px solid var(--h1accent);
+}
+
+#content h1:first-letter { 
+	color: var(--h1accent); 
+}
+
+#content h2 { 
+	font: 20pt 'Times New Roman', serif; 
+	color: var(--h2); 
+	padding: 0px; 
+	margin: 0;  
+	text-transform: lowercase; 
+	text-align: right; 
+}
+
+#content h3 {
+	font: 16pt 'Times New Roman', serif;
+	color:var(--h2);
+	text-align:right;
+	text-transform:lowercase;
+}
+
+#content h4 { 
+	font: 8.5pt sans-serif; 
+	color: var(--h4color); 
+	background: var(--h4bg); 
+	padding: 2px; 
+	margin: 0; 
+}
+
+/* Form elements */
+
+textarea, input, select, button { 
+	font:11pt Tahoma, sans-serif; 
+	background: var(--formbg); 
+	color: var(--formcolor); 
+	cursor: default; 
+	padding:5px;
+	border: 1px solid var(--color); 
+}
+
+/* Footer styling */
+
+#footer { 
+	background: var(--footerbg); 
+	color: var(--footercolor); 
+	text-align: center; 
+	padding: 3px;
+}
+
+/* Menu styling */
+
+#navigation { 
+	width: 200px; 
+	float: right; 
+	font-size:9pt;
+	text-transform: lowercase; 
+	margin-top: 151px; 
+}
+
+/* Menu links */
+
+#navigation a { 
+	display: inline-block; 
+	width:45px; 
+	color: var(--navlink); 
+	text-decoration: none; 
+	background: var(--navlinkbg); 
+	padding:5px; 
+	margin-bottom:2px; 
+	text-align:center;
+}
+
+#navigation a:hover { 
+	color: var(--navlinkhover); 
+	background: var(--navlinkhoverbg); 
+}
+
+/* Menu section headers */
+
+#navigation h1 { 
+	font: 16pt Century Gothic, sans-serif; 
+	color: var(--navh1); 
+	padding: 0px; 
+	margin: 0;  
+}
+
+@media screen and (max-width: 799px) {
+
+	#container { 
+		width:100%;
+		display:flex;
+		flex-wrap:wrap;
+		padding:0;
+	}
+	
+	#content {
+		width: calc(100% - 20px);
+		float:none;
+		padding:10px;
+		order:3;
+	}
+	
+	#navigation {
+		margin:auto;
+		float:none;
+		width: calc(100% - 10px);
+		padding:5px;
+		order:2;
+		display:grid;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		grid-gap:5px;
+	}
+	
+	#title {
+		text-align:center;
+		order:1
+	}
+
+}
+</style>
+</head>
+<body>
+<div id="container">
+<!-- Title -->
+<header id="title">Site <span>Title</span> Here</header>
+
+<!--Begin content-->
+<main id="content">
+<h1>Header</h1>
+<p>This is a layout I made in 2010. I'm not sure if I made it for someone specific or as a free thing. But it's free now! I encourage you to read <a href="https://kalechips.net/posts/2022-09-09-Mobile-Compatibility">the tutorial</a> on how I made this thing work on phones.</p>
+
+<h2>News Post</h2>
+<h4>posted on {date} by {name}</h4>
+<div class="box"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed feugiat sapien. Praesent sed velit massa, suscipit aliquet sapien. Suspendisse luctus auctor enim at porttitor. Fusce posuere augue id lacus hendrerit vulputate. Suspendisse congue diam ac ipsum posuere tincidunt. Pellentesque at ligula at orci vehicula adipiscing. Fusce sed suscipit sem. Nullam vulputate elit vitae purus tempor laoreet. Proin vel tortor quam, id fringilla dolor. Vestibulum a orci leo, ac placerat arcu. Morbi facilisis aliquet rutrum. Duis quis turpis tellus. Curabitur auctor viverra magna vitae euismod. In risus sem, feugiat a luctus in, porta a purus. Pellentesque augue urna, gravida nec cursus sed, congue viverra ligula.</p></div>
+<p><a href="http://URL HERE">0 Comments. Add one?</a></p>
+
+<h3>Header 3</h3>
+
+<p><a href="">This is a link</a></p>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+
+<!-- Footer -->
+<footer id="footer"><p>Footer</p></footer>
+</main>
+
+<!-- Begin menu -->
+<nav id="navigation">
+
+<!-- Copy entire section tag for a new block -->
+<section class="navsection">
+<h1>Sitely</h1>
+<a href="">Home</a>
+<a href="">Forums</a>
+<a href="">About</a>
+<a href="">Credits</a>
+<a href="">Joined</a>
+<a href="">History</a>
+</section>
+
+<section class="navsection">
+<h1>Content</h1>
+<a href="">Icons</a>
+<a href="">Bases</a>
+<a href="">Textures</a>
+<a href="">Renders</a>
+<a href="">Layouts</a>
+<a href="">Buttons</a>
+</section>
+
+<section class="navsection">
+<h1>Section</h1>
+<a href="">Link</a>
+<a href="">Link</a>
+<a href="">Link</a>
+<a href="">Link</a>
+<a href="">Link</a>
+<a href="">Link</a>
+</section>
+</nav>
+</div>
+</body>
+</html>
