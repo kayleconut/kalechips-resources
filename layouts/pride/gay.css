@@ -1,0 +1,323 @@
+:root {
+    --background:#3a3d43; /* Background color */
+    --color: #181818; /* Text color */
+    --contentbg: #f2f2f2; /* Content background color */
+    --sidebarbg: #e8e8e8; /* Sidebar background color */
+
+    --toplink: #121014; /* Text color for top menu links */
+
+    --link: #4b045e; /* Link color */
+    --linkhover: #984397;
+    --linkborder: #984397;
+
+    --pink:#c45b85;
+    --red:#c54c4c;
+    --orange:#d17c48;
+    --yellow:#c6be53;
+    --green: #6a9d30;
+    --teal: #3fb292;
+    --blue: #366db1;
+    --purple: #7832b9;
+
+    --lightpink:#f1bdd3;
+    --lightred:#eeadad;
+    --lightorange:#f5c1a2;
+    --lightyellow:#edeaa0;
+    --lightgreen: #c3f790;
+    --lightteal: #9beed6;
+    --lightblue: #adcef5;
+    --lightpurple: #c7a0ed;
+
+    /* Setting up the background gradient */
+    --gradient: repeating-linear-gradient(
+        90deg,
+        var(--pink),
+        var(--pink) 20px,
+        transparent 20px,
+        transparent 40px,
+        var(--red) 40px,
+        var(--red) 60px,
+        transparent 60px,
+        transparent 80px,
+        var(--orange) 80px,
+        var(--orange) 100px,
+        transparent 100px,
+        transparent 120px,
+        var(--yellow) 120px,
+        var(--yellow) 140px,
+        transparent 140px,
+        transparent 160px,
+        var(--green) 160px,
+        var(--green) 180px,
+        transparent 180px,
+        transparent 200px,
+        var(--teal) 200px,
+        var(--teal) 220px,
+        transparent 220px,
+        transparent 240px,
+        var(--blue) 240px,
+        var(--blue) 260px,
+        transparent 260px,
+        transparent 280px,
+        var(--purple) 280px,
+        var(--purple) 300px,
+        transparent 300px,
+        transparent 320px);
+}
+
+/* Dark mode colors */
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --background:#3a3d43; /* Background color */
+        --color: #dddddd; /* Text color */
+        --contentbg: #2d2f34; /* Content background color */
+        --sidebarbg: #262729; /* Sidebar background color */
+
+        --toplink: #bdb2c2; /* Text color for top menu links */
+
+        --link: #cfb2d7; /* Link color */
+        --linkhover: #b386b2;
+        --linkborder: #b386b2;
+    }
+
+    img { opacity: 0.6; }
+    img:hover { opacity: 1; }
+}
+* { margin:0; padding:0; transition: 0.5s; }
+img { margin:2px; max-width:100%; }
+
+/* Body styling */
+
+body {
+    background: var(--background) var(--gradient);
+    color: var(--color);
+    font:13pt sans-serif;
+    letter-spacing:0.2px;
+}
+
+/* Container styling */
+
+#container {
+    margin:25px auto;
+    padding:15px;
+    background:var(--contentbg);
+    width:calc(100% - 30px);
+    border-radius:5px;
+}
+
+/* Header styling */
+
+header {
+    text-align:center;
+    font:30pt serif;
+    /* Optional banner - uncomment the following: */
+    /*
+    height: 150px;
+    background: url(LINK HERE);
+    */
+}
+
+/* Top menu styling */
+
+#top {
+    text-align:center;
+}
+
+#top li {
+    display:inline-block;
+    list-style:none;
+}
+
+#top li a {
+    display:inline-block;
+    border-bottom:3px solid;
+    text-decoration:none;
+    margin:2px;
+    padding:2px;
+    font:20pt serif;
+    text-transform:lowercase;
+    color: var(--toplink);
+}
+
+#content {
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+/* Main styling */
+
+main {
+    flex:100%;
+    padding:15px 15px 15px 10px;
+}
+
+p {
+    line-height:1.4;
+    margin:7px 0 7px 0;
+}
+
+p a, main li a {
+    color:var(--link);
+    text-decoration:underline var(--linkborder);
+}
+
+main a:hover, #sidebar p a:hover {
+    color:var(--linkhover);
+}
+
+main h1 {
+    font:24pt serif;
+}
+
+main h2 {
+    font: 20pt serif;
+    font-style:italic;
+}
+
+main h3 {
+    font: 16pt serif;
+    font-style:italic;
+}
+
+main ul, main ol {
+    list-style-position:outside;
+    margin-left: 20px;
+}
+
+main li {
+    line-height:1.4;
+}
+
+main input, textarea, select, button { 
+	background: var(--contentbg);  
+	color: var(--color);
+	font: 13pt sans-serif; 
+	border: 1px solid; 
+	padding: 8px; 
+	margin: 2px;
+}
+
+/* Sidebar styling */
+
+#sidebar {
+    flex:100%;
+    background:var(--sidebarbg);
+    padding:15px;
+    border-radius:3px;
+}
+
+#sidebar h1 {
+    font:18pt serif;
+    text-align:center;
+    text-transform:lowercase;
+    font-style:italic;
+}
+
+#sidebar nav ul {
+    list-style:none;
+}
+
+#sidebar nav a {
+    border-bottom:1px solid var(--linkborder);
+    display:block;
+    text-decoration:none;
+    padding:2px;
+    color:var(--link);
+}
+
+#sidebar nav a:hover {
+    padding-left:20px;
+}
+
+/* Footer styling */
+
+footer {
+    text-align:center;
+    margin-top:15px;
+    padding:10px 10px 0 10px;
+    font-size:12pt;
+}
+
+/* Desktop styling */
+
+@media screen and (min-width:800px) {
+    #container {
+        width:80%;
+        max-width:900px;
+    }
+    
+    main {
+        flex:calc(75% - 25px);
+    }
+
+    #sidebar {
+        flex:calc(25% - 30px);
+    }
+}
+/* Rainbows... */
+
+#top li:nth-of-type(1) a {
+    border-color: var(--pink);
+}
+
+#top li:nth-of-type(1) a:hover {
+    border-color: var(--lightpink);
+}
+
+#top li:nth-of-type(2) a {
+    border-color: var(--red);
+}
+
+#top li:nth-of-type(2) a:hover {
+    border-color: var(--lightred);
+}
+
+#top li:nth-of-type(3) a {
+    border-color: var(--orange);
+}
+
+#top li:nth-of-type(3) a:hover {
+    border-color: var(--lightorange);
+}
+
+#top li:nth-of-type(4) a {
+    border-color: var(--yellow);
+}
+
+#top li:nth-of-type(4) a:hover {
+    border-color: var(--lightyellow);
+}
+
+#top li:nth-of-type(5) a {
+    border-color: var(--green);
+}
+
+#top li:nth-of-type(5) a:hover {
+    border-color: var(--lightgreen);
+}
+
+#top li:nth-of-type(6) a {
+    border-color: var(--teal);
+}
+
+#top li:nth-of-type(6) a:hover{
+    border-color: var(--lightteal);
+}
+
+#top li:nth-of-type(7) a {
+    border-color: var(--blue);
+}
+
+#top li:nth-of-type(7) a:hover {
+    border-color: var(--lightblue);
+}
+
+#top li:nth-of-type(8) a {
+    border-color: var(--purple);
+}
+
+#top li:nth-of-type(8) a:hover {
+    border-color: var(--lightpurple);
+}

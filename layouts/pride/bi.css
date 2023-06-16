@@ -1,0 +1,249 @@
+:root {
+    --background:#a91b73; /* Background color */
+    --color: #230b13; /* Text color */
+    --contentbg: #eae1e7; /* Content background color */
+    --sidebarbg: #e7d2e0; /* Sidebar background color */
+
+    --toplink: #460069; /* Text color for top menu links */
+
+    --link: #11176f; /* Link color */
+    --linkhover: #681c81;
+    --linkborder: #a91b73;
+
+    --pink:#a91b73;
+    --purple:#681c81;
+    --blue:#11176f;
+
+    --lightpink:#dc5fac;
+    --lightpurple:#a85dc1;
+    --lightblue:#5158bf;
+
+    /* Setting up the background gradient */
+    --gradient: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        var(--purple) 20px,
+        var(--purple) 40px,
+        var(--blue) 40px,
+        var(--blue) 60px);
+}
+
+/* Dark mode colors */
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --background:#a91b73; /* Background color */
+        --color: #cabecd; /* Text color */
+        --contentbg: #321c34; /* Content background color */
+        --sidebarbg: #28152a; /* Sidebar background color */
+
+        --toplink: #cfc25e; /* Text color for top menu links */
+
+        --link: #ae86bc; /* Link color */
+        --linkhover: #dfd163;
+        --linkborder: #dfd163;
+    }
+
+    img { opacity: 0.6; }
+    img:hover { opacity: 1; }
+}
+
+* { margin:0; padding:0; transition: 0.5s; }
+img { margin:2px; max-width:100%; }
+
+/* Body styling */
+
+body {
+    background: var(--background) var(--gradient);
+    color: var(--color);
+    font:13pt sans-serif;
+    letter-spacing:0.2px;
+}
+
+/* Container styling */
+
+#container {
+    margin:25px auto;
+    padding:15px;
+    background:var(--contentbg);
+    width:calc(100% - 30px);
+    border-radius:5px;
+}
+
+/* Header styling */
+
+header {
+    text-align:center;
+    font:30pt serif;
+    /* Optional banner - uncomment the following: */
+    /*
+    height: 150px;
+    background: url(LINK HERE);
+    */
+}
+
+/* Top menu styling */
+
+#top {
+    text-align:center;
+}
+
+#top li {
+    display:inline-block;
+    list-style:none;
+}
+
+#top li a {
+    display:inline-block;
+    border-bottom:3px solid;
+    text-decoration:none;
+    margin:2px;
+    padding:2px;
+    font:20pt serif;
+    text-transform:lowercase;
+    color: var(--toplink);
+}
+
+#content {
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+/* Main styling */
+
+main {
+    flex:100%;
+    padding:15px 15px 15px 10px;
+}
+
+p {
+    line-height:1.4;
+    margin:7px 0 7px 0;
+}
+
+p a, main li a {
+    color:var(--link);
+    text-decoration:underline var(--linkborder);
+}
+
+main a:hover, #sidebar p a:hover {
+    color:var(--linkhover);
+}
+
+main h1 {
+    font:24pt serif;
+}
+
+main h2 {
+    font: 20pt serif;
+    font-style:italic;
+}
+
+main h3 {
+    font: 16pt serif;
+    font-style:italic;
+}
+
+main ul, main ol {
+    list-style-position:outside;
+    margin-left: 20px;
+}
+
+main li {
+    line-height:1.4;
+}
+
+main input, textarea, select, button { 
+	background: var(--contentbg);  
+	color: var(--color);
+	font: 13pt sans-serif; 
+	border: 1px solid; 
+	padding: 8px; 
+	margin: 2px;
+}
+
+/* Sidebar styling */
+
+#sidebar {
+    flex:100%;
+    background:var(--sidebarbg);
+    padding:15px;
+    border-radius:3px;
+}
+
+#sidebar h1 {
+    font:18pt serif;
+    text-align:center;
+    text-transform:lowercase;
+    font-style:italic;
+}
+
+#sidebar nav ul {
+    list-style:none;
+}
+
+#sidebar nav a {
+    border-bottom:1px solid var(--linkborder);
+    display:block;
+    text-decoration:none;
+    padding:2px;
+    color:var(--link);
+}
+
+#sidebar nav a:hover {
+    padding-left:20px;
+}
+
+/* Footer styling */
+
+footer {
+    text-align:center;
+    margin-top:15px;
+    padding:10px 10px 0 10px;
+    font-size:12pt;
+}
+
+/* Desktop styling */
+
+@media screen and (min-width:800px) {
+    #container {
+        width:80%;
+        max-width:900px;
+    }
+    
+    main {
+        flex:calc(75% - 25px);
+    }
+
+    #sidebar {
+        flex:calc(25% - 30px);
+    }
+}
+
+/* Rainbows... */
+
+#top li:nth-of-type(3n+1) a {
+    border-color: var(--pink);
+}
+
+#top li:nth-of-type(3n+1) a:hover {
+    border-color: var(--lightpink);
+}
+
+#top li:nth-of-type(3n+2) a {
+    border-color: var(--purple);
+}
+
+#top li:nth-of-type(3n+2) a:hover {
+    border-color: var(--lightpurple);
+}
+
+#top li:nth-of-type(3n) a {
+    border-color: var(--blue);
+}
+
+#top li:nth-of-type(3n) a:hover {
+    border-color: var(--lightblue);
+}

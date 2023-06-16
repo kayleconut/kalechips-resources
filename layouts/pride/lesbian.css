@@ -1,0 +1,263 @@
+:root {
+    --background:#f3e5db; /* Background color */
+    --color: #23130b; /* Text color */
+    --contentbg: #f5e6da; /* Content background color */
+    --sidebarbg: #ebd4c0; /* Sidebar background color */
+
+    --toplink: #690025; /* Text color for top menu links */
+
+    --link: #690025; /* Link color */
+    --linkhover: #8e3458;
+    --linkborder: #c47748;
+
+    --red:#b3464b;
+    --orange:#c47748;
+    --pink:#ca7079;
+    --maroon:#8e3458;
+
+    --lightred:#d4686d;
+    --lightorange:#e69563;
+    --lightpink:#e88690;
+    --lightmaroon:#b7527a;
+
+    /* Setting up the background gradient */
+    --gradient: repeating-linear-gradient(
+        90deg,
+        var(--red),
+        var(--red) 20px,
+        var(--orange) 20px,
+        var(--orange) 40px,
+        transparent 40px,
+        transparent 60px,
+        var(--pink) 60px,
+        var(--pink) 80px,
+        var(--maroon) 80px,
+        var(--maroon) 100px);
+}
+
+/* Dark mode colors */
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --background:#ebd4c0; /* Background color */
+        --color: #f3eadb; /* Text color */
+        --contentbg: #3b2125; /* Content background color */
+        --sidebarbg: #321b1e; /* Sidebar background color */
+
+        --toplink: #efc2a0; /* Text color for top menu links */
+
+        --link: #efaa9b; /* Link color */
+        --linkhover: #e97777;
+        --linkborder: #e97777;
+    }
+
+    img { opacity: 0.6; }
+    img:hover { opacity: 1; }
+}
+
+* { margin:0; padding:0; transition: 0.5s; }
+img { margin:2px; max-width:100%; }
+
+/* Body styling */
+
+body {
+    background: var(--background) var(--gradient);
+    color: var(--color);
+    font:13pt sans-serif;
+    letter-spacing:0.2px;
+}
+
+/* Container styling */
+
+#container {
+    margin:25px auto;
+    padding:15px;
+    background:var(--contentbg);
+    width:calc(100% - 30px);
+    border-radius:5px;
+}
+
+/* Header styling */
+
+header {
+    text-align:center;
+    font:30pt serif;
+    /* Optional banner - uncomment the following: */
+    /*
+    height: 150px;
+    background: url(LINK HERE);
+    */
+}
+
+/* Top menu styling */
+
+#top {
+    text-align:center;
+}
+
+#top li {
+    display:inline-block;
+    list-style:none;
+}
+
+#top li a {
+    display:inline-block;
+    border-bottom:3px solid;
+    text-decoration:none;
+    margin:2px;
+    padding:2px;
+    font:20pt serif;
+    text-transform:lowercase;
+    color: var(--toplink);
+}
+
+#content {
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+/* Main styling */
+
+main {
+    flex:100%;
+    padding:15px 15px 15px 10px;
+}
+
+p {
+    line-height:1.4;
+    margin:7px 0 7px 0;
+}
+
+p a, main li a {
+    color:var(--link);
+    text-decoration:underline var(--linkborder);
+}
+
+main a:hover, #sidebar p a:hover {
+    color:var(--linkhover);
+}
+
+main h1 {
+    font:24pt serif;
+}
+
+main h2 {
+    font: 20pt serif;
+    font-style:italic;
+}
+
+main h3 {
+    font: 16pt serif;
+    font-style:italic;
+}
+
+main ul, main ol {
+    list-style-position:outside;
+    margin-left: 20px;
+}
+
+main li {
+    line-height:1.4;
+}
+
+main input, textarea, select, button { 
+	background: var(--contentbg);  
+	color: var(--color);
+	font: 13pt sans-serif; 
+	border: 1px solid; 
+	padding: 8px; 
+	margin: 2px;
+}
+
+/* Sidebar styling */
+
+#sidebar {
+    flex:100%;
+    background:var(--sidebarbg);
+    padding:15px;
+    border-radius:3px;
+}
+
+#sidebar h1 {
+    font:18pt serif;
+    text-align:center;
+    text-transform:lowercase;
+    font-style:italic;
+}
+
+#sidebar nav ul {
+    list-style:none;
+}
+
+#sidebar nav a {
+    border-bottom:1px solid var(--linkborder);
+    display:block;
+    text-decoration:none;
+    padding:2px;
+    color:var(--link);
+}
+
+#sidebar nav a:hover {
+    padding-left:20px;
+}
+
+/* Footer styling */
+
+footer {
+    text-align:center;
+    margin-top:15px;
+    padding:10px 10px 0 10px;
+    font-size:12pt;
+}
+
+/* Desktop styling */
+
+@media screen and (min-width:800px) {
+    #container {
+        width:80%;
+        max-width:900px;
+    }
+    
+    main {
+        flex:calc(75% - 25px);
+    }
+
+    #sidebar {
+        flex:calc(25% - 30px);
+    }
+}
+
+/* Rainbows... */
+
+#top li:nth-of-type(4n+1) a {
+    border-color: var(--red);
+}
+
+#top li:nth-of-type(4n+1) a:hover {
+    border-color: var(--lightred);
+}
+
+#top li:nth-of-type(4n+2) a {
+    border-color: var(--orange);
+}
+
+#top li:nth-of-type(4n+2) a:hover {
+    border-color: var(--lightorange);
+}
+
+#top li:nth-of-type(4n+3) a {
+    border-color: var(--pink);
+}
+
+#top li:nth-of-type(4n+3) a:hover {
+    border-color: var(--lightpink);
+}
+
+#top li:nth-of-type(4n) a {
+    border-color: var(--maroon);
+}
+
+#top li:nth-of-type(4n) a:hover {
+    border-color: var(--lightmaroon);
+}
