@@ -1,0 +1,200 @@
+/* Default colors */
+:root {
+	--color:#212c2c;
+	--background:#e8e3d6;
+	
+	--link:#804E00;
+	--linkhover:#3c6d70;
+	
+	--formbg:#f4f1e9;
+	--formcolor:#212c2c;
+	
+	--accentbg:#e0d9c6;
+	--hr: #bb9860;
+}
+
+/* Alternate colors */
+/* Replace "dark" with "light" and add your light mode colors here if you want your site to be in dark mode by default */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color:#DCD7C9;
+		--background:#2C3639;
+		
+		--link:#9bc4c7;
+		--linkhover:#cca376;
+		
+		--formbg:#232c2f;
+		--formcolor:#DCD7C9;
+		
+		--accentbg:#232c2f;
+		--hr: #5b7e81;
+	}
+}
+
+/* ------ The rest of the code starts here ------- */
+
+* { margin: 0; padding: 0; transition:0.5s ease;}
+img { margin:5px; max-width:100%; }
+
+body { 
+	color:var(--color);
+	background:var(--background);
+	font: 13pt sans-serif; 
+	letter-spacing:.35px;
+}
+
+main {
+	padding:20px;
+	width:90%;
+	max-width:800px;
+	margin:auto;
+}
+
+a {
+	color:var(--link);
+}
+
+a:hover {
+	color: var(--linkhover);
+}
+
+li a {
+	text-decoration:none;
+}
+
+p {
+	margin:10px 0px 10px 0px;
+	line-height:1.5;
+}
+
+main h1 {
+	font:26pt Georgia, Times New Roman, serif;
+	margin:5px 0 5px 0;
+}
+
+main h2 {
+	margin:10px 0 10px 0;
+	font:23pt Georgia, Times New Roman, serif;
+}
+
+main h3 {
+	margin:5px 0 5px 0;
+	font: 18.5pt Georgia, Times New Roman, serif;
+}
+
+main h4 {
+	font:13pt Georgia, Times New Roman, serif;
+	font-style:italic;
+	margin:5px 0 20px 0;
+}
+
+main input, textarea, select, button { 
+	background: var(--formbg);  
+	color: var(--formcolor);
+	font: 12pt sans-serif; 
+	border: 1px solid var(--hr); 
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+}
+
+main textarea {
+	width:90%;
+}
+
+input[type="submit"], input[type="reset"] {
+	font-size:13pt;
+	background:var(--accentbg);
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+	background:var(--hr);
+	cursor:pointer;
+}
+
+main table {
+	margin:10px auto 10px auto;
+	padding:5px;
+	width:100%;
+	border-collapse:collapse;
+}
+
+main th {
+	border-bottom:1px solid var(--hr);
+	padding:5px;
+	text-align:left;
+}
+
+main td {
+	padding:3px;
+}
+
+main tr:nth-child(2n) {
+	background:var(--accentbg);
+}
+
+main ul, ol { 
+	list-style-position: outside;
+	margin: 8px 0 8px 20px;
+}
+
+main li {
+	margin:5px 0 5px 0;
+	line-height:1.5;
+}
+
+main ul li ul, main ol li ol {
+	margin-left:15px;
+}
+
+main blockquote {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+main summary {
+	cursor:pointer;
+	margin: 5px 0px 5px 0px;
+}
+
+main details {
+	padding:10px;
+	background:var(--accentbg);
+	margin:5px 0 5px 0;
+    border-radius:5px;
+}
+
+main hr {
+	border:0.5px solid var(--hr);
+    margin:20px auto 20px auto;
+}
+
+main pre {
+	padding:10px;
+	background:var(--accentbg);
+	margin:10px auto 10px auto;
+	border-radius:5px;
+	overflow:auto;
+}
+
+main footer {
+	text-align:center;
+	border-top: 0.5px solid var(--hr);
+	margin-top:10px;
+	padding:10px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+	main img {
+		opacity:0.6;
+	}
+	
+	main img:hover {
+		opacity:1;
+	}
+
+	main a img:hover {
+		opacity:1;
+	}
+}
