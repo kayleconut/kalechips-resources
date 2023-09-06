@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>"Table" layout</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+    /* Background and text color */
+    --background:#b4c4ff;
+    --color:#05104c;
+    
+    /* "Table" borders */
+    --borderstyle: 2px solid var(--bordercolor);
+    --bordercolor:#FFF;
+    
+    /* Container */
+    --container:#c4dcff;
+    
+    /* Header */
+    --header:#dac4ff;
+    --headercolor:#55067d;
+    --headerhover:#740aaa;
+    
+    /* Sidebar */
+    --sidebar:#ffceea;
+    --sidebarlink:#720090;
+    --sidebarlinkhover:#b3169a;
+    
+    /* Main content */
+    --main:#defadf;
+    --link:#970750;
+    --linkhover:#a3108d;
+    --linkvisited:#22439d;
+    
+    /* Footer */
+    --footer:#dac4ff;
+    --footercolor:#05104c;
+    --footerlink:#55067d;
+    --footerlinkhover:#740aaa;
+}
+
+* { margin:0; padding:0; }
+
+img {
+    max-width:95%;
+}
+
+body {
+	background: var(--background);
+	color:var(--color);
+    font:1.15rem "Times New Roman", serif;
+    line-height:1.4;
+}
+
+/* Skip to content link - do not remove */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--main);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+/* Container */
+
+#container {
+	max-width:800px;
+    width: 90%;
+	background:var(--container);
+	border:var(--borderstyle);
+	margin:20px auto;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* Header */
+
+header {
+    flex: 1 1 calc(100% - 6px);
+    border: var(--borderstyle);
+    text-align:center;
+    margin:3px;
+    background:var(--header);
+    font-size:2.5em;
+}
+
+header a, header a:visited {
+    color:var(--headercolor);
+}
+
+header a:hover, header a:focus {
+    color:var(--headerhover);
+}
+
+/* Footer */
+
+footer {
+    flex: 1 1 calc(100% - 26px);
+    border: var(--borderstyle);
+    padding:5px;
+    margin:3px;
+    text-align:center;
+    color:var(--footercolor);
+    background:var(--footer);
+}
+
+footer a, footer a:visited {
+    color:var(--footerlink);
+}
+
+footer a:hover, footer a:focus {
+    color:var(--footerlinkhover);
+}
+
+/* Sidebar/menu */
+
+#menu {
+	padding:10px;
+    border: var(--borderstyle);
+    flex: 1 1 calc(20% - 23px);
+    background:var(--sidebar);
+    margin:0 0 0 3px;
+}
+
+#menu ul {
+    list-style:none;
+    font-size:1.8rem;
+    line-height:1.2;
+}
+
+#menu li {
+    display:block;
+    margin:.2em;
+}
+
+#menu li a, #menu li a:visited {
+    color:var(--sidebarlink);
+}
+
+#menu li a:hover, #menu li a:focus {
+    color:var(--sidebarlinkhover);
+}
+
+/* Content */
+
+main {
+	padding:10px;
+    flex: 1 1 calc(80% - 40px);
+    border: var(--borderstyle);
+    margin: 0 3px;
+    background: var(--main);
+}
+
+main a {
+	color:var(--link);
+}
+
+main a:visited {
+    color:var(--linkvisited);
+}
+
+main a:hover, main a:focus {
+    color:var(--linkhover);
+}
+
+main h1 {
+    font-size:2em;
+}
+
+main h2 {
+    font-size:1.7em;
+}
+
+main h3 {
+    font-size:1.4em;
+}
+
+main h4 {
+    font-size:1.1em;
+}
+
+main ul {
+    margin-left:30px;
+}
+
+main ul li {
+    margin-bottom:.2em;
+}
+
+p {
+	margin:0.5em 0px 0.5em 0px;
+}
+
+main input, textarea, select, button {
+    background: var(--main);
+    color: var(--color);
+    border:1px solid;
+    font:1em monospace;
+    padding:5px;
+}
+
+main input[type="submit"]:hover, main input[type="submit"]:focus, main button:hover, main button:focus {
+    color: var(--linkhover);
+}
+
+/* Mobile styling */
+
+@media screen and (max-width:800px) {
+    #menu {
+        flex: 1 1 calc(100% - 20px);
+        text-align:center;
+        margin: 0 3px 3px 3px;
+    }
+    
+    #menu li {
+        display:inline-block;
+    }
+    
+    #content {
+        flex: 1 1 calc(100% - 20px);
+    }
+}
+</style>
+</head>
+
+<body>
+<!-- Accessibility links - do not remove -->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+
+<!-- Container start -->
+<div id="container">
+<!-- Header -->
+<header>
+<a href="">Website title</a>
+</header>
+
+<!-- Menu start -->
+<nav id="menu">
+<ul>
+    <!-- Add links here in <li> tags -->
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
+</nav>
+<!-- Menu end -->
+
+<!-- Content start -->
+<main id="content">
+<h1>Header</h1>
+<p>This looks like a table layout, but it's all done using flexbox and is fully responsive. It's very customizable and easy to use, for all your 2000s web design needs! You can even change the border style for the entire thing in one line.</p>
+
+<p><a href="" target="_blank">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
+
+<h2>Formatting</h2>
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+
+<p><a href="">Link</a></p>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+</main>
+<!-- Content end -->
+
+<!-- Footer start -->
+<footer>
+<p><a href="#top">Back to top</a> &bull; <a href="#menu">Back to menu</a></p>
+</footer>
+<!-- Footer end -->
+
+<!-- Container end -->
+</div>
+</body>
+</html>
