@@ -7,255 +7,392 @@
 <meta charset="utf-8">
 
 <style>
-/*Colors*/
 :root {
-	/* If you want a transparent background, set the value to none */
-	
-	--background: #A1B641; /*Main background color*/
-	--textcolor: #444; /*Body text color*/
-	
-	--mainbg: #f2f2f2; /*Content background color*/
-	--mainlink: #607c00; /*Content link color*/
-	--mainlinkhover: #5d1d5f; /*Content link hover color*/
-	
-	/*Header text colors*/
-	--h1color: #444;
-	--h2color: #444;
-	--h3color: #444;
-	--h4color: #607c00;
-	
-	--navbg: #f2f2f2; /*Sidebar background color*/
-	--navheader: #444; /*Sidebar header color*/
-	--navborder: #607c00; /*If you don't want a border under the headers in the menu, change this to none*/
-	
-	--navlink: #607c00; /*Sidebar link color*/
-	--navlinkbg: none; /*Sidebar link background*/
-	--navlinkhover: #FFF; /*Sidebar link hover color*/
-	--navlinkbghover: #5d1d5f; /*Sidebar link hover background*/
-	
-	--formbg: #ebebeb; /*Form element background*/
-	--formtext:#666; /*Form element text color*/
-	
+    /* Images */
+    
+    /*Put your entire header background image CSS here */
+    --header-background: url(https://placehold.co/800x150) center no-repeat; 
+    
+    /*Hamburger menu icons*/
+    --burgericon:url(/assets/burger.svg); /* Path to burger vector */
+    --closeicon:url(/assets/close.svg); /* Path to close vector */
+    
+    /*Fonts*/
+    --body-font: Tahoma, sans-serif; /* Body text font */
+    --header-font: Georgia, serif; /* Font for headers */
+    
+    /* Colors */
+    /* If you want a transparent background for any element, set the value to none */
+    
+    --background: #A1B641; /*Main background color*/
+    --textcolor: #444; /*Body text color*/
+    
+    --mainbg: #f2f2f2; /*Content background color*/
+    --mainlink: #607c00; /*Content link color*/
+    --mainlinkhover: #5d1d5f; /*Content link hover color*/
+    
+    /*Header text colors*/
+    --h1color: #444;
+    --h2color: #444;
+    --h3color: #444;
+    --h4color: #607c00;
+    
+    --navbg: #f2f2f2; /*Sidebar background color*/
+    --navheader: #444; /*Sidebar header color*/
+    --navborder: #607c00; /*If you don't want a border under the headers in the menu, change this to none*/
+    
+    --navlink: #607c00; /*Sidebar link color*/
+    --navlinkbg: none; /*Sidebar link background*/
+    --navlinkhover: #FFF; /*Sidebar link hover color*/
+    --navlinkbghover: #5d1d5f; /*Sidebar link hover background*/
+    --navcolor:#607c00; /*Color of hamburger menu icon*/
+    
+    --formbg: #ebebeb; /*Form element background*/
+    --formtext:#666; /*Form element text color*/
+    
+    --overlay:rgb(0,0,0,0.5); /*Overlay when hamburger menu is open*/
+    
 }
 
 * { margin: 0; padding: 0; }
 
 body { 
-	background: var(--background); 
-	color: var(--textcolor);
-	font: 11pt Tahoma, sans-serif; 
+    background: var(--background); 
+    color: var(--textcolor);
+    font: 1rem var(--body-font); 
 }
 
 #container { 
-	max-width: 800px;
-	width:80%;
-	padding: 10px;
-	margin: 25px auto;
+    max-width: 800px;
+    padding: 10px;
+    margin: 25px auto;
+    display: flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-header {
-	height: 150px; /*You can change the height of your header image*/
-	background:url(https://placehold.co/800x150) center no-repeat; /*Put your background image in the url field*/
-	background-size:cover;
-	margin-bottom:10px;
-}
-
-#columns {
-	display: flex;
-	flex-wrap:wrap;
+#main-header {
+    height: 150px; 
+    flex:1 0 100%;
+    background: var(--header-background);
+    background-size:cover;
 }
 
 main { 
-	padding:15px;
-	background:var(--mainbg);
-	width:calc(75% - 30px);
-	margin-left:15px;
+    padding:15px;
+    background:var(--mainbg);
+    flex:1 1 calc(80% - 45px);
 }
 
 main a { 
-	color: var(--mainlink); 
+    color: var(--mainlink); 
 }
 
-main a:hover { 
-	color: var(--mainlinkhover); 
+main a:hover, main a:focus { 
+    color: var(--mainlinkhover); 
 }
 
 main p {
-	margin:10px 0px 10px 0px;
-	line-height:1.4;
+    margin:.5em 0px .5em 0px;
+    line-height:1.5;
 }
 
 main h1 {
-	font: 22pt Georgia, serif; 
-	color: var(--h1color);
+    font: 2em var(--header-font); 
+    color: var(--h1color);
 }
 
 main h2 { 
-	font: 17pt sans-serif;
-	color: var(--h2color);
+    font: 1.7em var(--header-font);
+    color: var(--h2color);
 }
 
 main h3 { 
-	font: 14pt sans-serif; 
-	color: var(--h3color);
+    font: 1.4em var(--header-font); 
+    color: var(--h3color);
 }
 
 main h4 {
-	font-size:10pt;
-	font-weight:normal;
-	font-style:italic;
-	color: var(--h4color);
+    font:0.9em var(--header-font);
+    font-style:italic;
 }
 
 main img { 
-	margin: 5px; 
-	max-width:90%;
+    margin: 5px; 
+    max-width:90%;
 }
 
 main ul { 
-	list-style: inside; 
+    list-style: inside; 
 }
 
 main ul li ul {
-	margin-left:15px;
+    margin-left:15px;
 }
 
 main input, textarea, select, button { 
-	background: var(--formbg); 
-	color: var(--formtext); 
-	border: 1px solid; 
-	font: 10pt Tahoma, sans-serif;
-	padding: 5px; 
-	margin: 5px;
+    background: var(--formbg); 
+    color: var(--formtext); 
+    border: 1px solid; 
+    font: 1em var(--body-font);
+    padding: 5px; 
+    margin: 5px;
 }
 
-nav {
-	width: calc(25% - 15px);
+#sidebar {
+    flex:1 1 20%;
 }
 
 .item {
-	padding:15px;
-	background:var(--navbg);
-	margin:0px 0px 15px 0px;
+    padding:15px;
+    background:var(--navbg);
+    margin-bottom:15px;
 }
 
-nav h1 { 
-	font: 14pt Georgia, 'Times New Roman', serif; 
-	border-bottom: 1px solid var(--navborder);
-	color:var(--navheader);
+.menu h2 { 
+    font: 1.2rem var(--header-font); 
+    border-bottom: 1px solid var(--navborder);
+    color:var(--navheader);
 }
 
-nav ul {
-	list-style:none;
-	display:inline;
-	margin:0;
+.menu ul {
+    list-style:none;
+    display:inline;
+    margin:0;
 }
 
-nav ul li {
-	display:block;
+.menu ul li {
+    display:block;
 }
 
-nav a { 
-	display: block; 
-	text-decoration: none; 
-	padding:5px;
-	color: var(--navlink);
-	background:var(--navlinkbg);
+.menu a { 
+    display: block; 
+    text-decoration: none; 
+    padding:5px;
+    color: var(--navlink);
+    background:var(--navlinkbg);
 }
 
-nav a:hover { 
-	color: var(--navlinkhover);
-	background: var(--navlinkbghover);
+.menu a:hover, .menu a:focus { 
+    color: var(--navlinkhover);
+    background: var(--navlinkbghover);
 }
 
 footer {
-	margin-top:15px;
-	background:var(--mainbg);
-	padding:15px;
-	text-align:center;
+    background:var(--mainbg);
+    padding:15px;
+    text-align:center;
+    flex: 1 0 calc(100% - 30px);
 }
 
-@media screen and (max-width:799px) {
-	body { font-size:10pt;}
+/* Burger menu styles */
 
-	#container {
-		width: calc(100% - 20px);
-		margin-top:0px;
-	}
-	
-	main {
-		width:100%;
-		flex-grow:1;
-		order:1;
-		margin:0px 0px 10px 0px;
-	}
-	
-	nav {
-		order:2;
-		width:100%;
-		flex-grow:1;
-	}
-	
-	.item {
-		margin:0px 0px 10px 0px;
-	}
-	
-	footer {
-		margin-top:0px;
-	}
+#burger {
+    display:none;
+    width:100%;
+    position:fixed;
+    top:0;
+}
+
+#burger summary {
+    list-style-type: none;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    color:var(--background);
+    padding:5px;
+    background:var(--background);
+}
+
+#burger summary::before, #burger[open]>summary::before {
+    height:40px;
+    width:40px;
+    background:var(--navcolor);
+}
+
+#burger summary::-webkit-details-marker {
+    display: none;
+}
+
+#burger summary::before {
+    content: '';
+    mask-image:var(--burgericon);
+    -webkit-mask-image:var(--burgericon);
+    mask-size:40px;
+    -webkit-mask-size:40px;
+}
+
+#burger[open]>summary::before {
+    content: '';
+    mask-image:var(--closeicon);
+    -webkit-mask-image:var(--closeicon);
+    mask-size:40px;
+    -webkit-mask-size:40px;
+}
+
+#burger[open] {
+    position:fixed;
+    background:var(--overlay);
+}
+
+.skip a {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+ 
+.skip a:focus {
+    position:static;
+    width:auto;
+    height:auto;
+}
+
+#burger-menu {
+    height:100vh;
+    overflow:auto;
+    z-index:1000;
+    background:var(--navbg);
+    width:200px;
+}
+
+#burger-menu .item {
+    margin:0;
+    padding:10px;
+}
+
+/* Skip to content button */
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--mainbg);
+    color:var(--mainlink);
+    z-index:1001;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+@media screen and (max-width:600px) {
+    
+    main {
+        flex-basis:100%;
+    }
+    
+    #sidebar {
+        display:none;
+    }
+    
+    #burger {
+        display:block;
+    }
+    
+    footer {
+        margin-top:0px;
+    }
 
 }
 </style>
 </head>
 <body>
+<!-- SKIP TO CONTENT BUTTON, DO NOT DELETE -->
+<div id="skip"> <a href="#content">Skip to content</a> </div>
+
+<!-- START HAMBURGER MENU -->
+<details id="burger">
+<summary id="toggle">Menu</summary>
+<nav id="burger-menu" class="menu">
+<!-- Make sure everything in here matches with the contents of the sidebar -->
+<div class="item">
+<h2>Header</h2> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</div>
+
+<div class="item">
+<h2>Header</h2> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</div>
+
+<div class="item">
+<h2>Header</h2> 
+<ul>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+<li><a href="">Link</a></li>
+</ul>
+</div>
+
+<!-- Don't delete this -->
+<ul>
+    <li class="skip"><a href="#toggle">Close menu</a></li>
+</ul>
+</nav>
+</details>
+<!-- END HAMBURGER MENU -->
+
 <div id="container">
 
-<!--Header-->
-<header></header>
+<header id="main-header"></header>
 
-<div id="columns">
-
-<!--Begin sidebar-->
-<nav>
-
-<!--Copy the entire code in the section tags for a new block-->
-<section class="item">
-<h1>Header</h1> 
+<!-- BEGIN SIDEBAR -->
+<nav id="sidebar" class="menu">
+<!-- Make sure everything in here matches the contents of the hamburger menu -->
+<div class="item">
+<h2>Header</h2> 
 <ul>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 </ul>
-</section>
+</div>
 
-<section class="item">
-<h1>Header</h1> 
+<div class="item">
+<h2>Header</h2> 
 <ul>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 </ul>
-</section>
+</div>
 
-<section class="item">
-<h1>Header</h1> 
+<div class="item">
+<h2>Header</h2> 
 <ul>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 </ul>
-</section>
+</div>
 </nav>
+<!-- END SIDEBAR -->
 
-<!--Begin content-->
-<main>
+<!-- BEGIN CONTENT -->
+
+<main id="content">
 <h1>Header</h1>
 <p>This is the skeleton of the first layout I made for this website. I ended up with more pages than would be reasonable to put on a sidebar, so I scrapped the 2-column layout for the single column thing you see now. But it still works, so I figured I'd clean it up and release it, so here we are!</p>
 
-<h2>Mobile compatibility</h2>
-<p>This version of the layout collapses into a single column on screens smaller than 800px wide. For the version with columns on all screen sizes, go <a href="2column-1.html">here.</a></p>
+<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/2column-1.html" target="_blank">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
 
-<p>I pushed the menu to the bottom, but if you want it to display at the top of the screen, switch the order around at the bottom of the CSS.</p>
+<h2>Mobile compatibility</h2>
+<p>This version of the layout collapses into a single column on screens smaller than 800px wide and displays the sidebar as a hamburger menu. Make sure to copy your code in the sidebar into the hamburger menu as well! For the version with columns on all screen sizes, go to the <a href="2column-1.html">first version.</a></p>
 
 <h2>Formatting</h2>
 <h3>Header 3</h3>
@@ -263,30 +400,32 @@ footer {
 
 <p><input type="text" value="Input" /></p>
 <p><select>
-	<option selected>Selection</option>
-	<option>Option 1</option>
-	<option>Option 2</option>
-	<option>Option 3</option>
+    <option selected>Selection</option>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
 </select></p>
 <p><textarea>Textarea</textarea></p>
 <p><button type="button">Button</button></p>
 
 <ul>
-	<li>This</li>
-	<li>is</li>
-	<li>a</li>
-	<li>list
-	<ul>
-		<li>List</li>
-		<li>inside</li>
-		<li>of</li>
-		<li>list</li>
-	</ul></li>
+    <li>This</li>
+    <li>is</li>
+    <li>a</li>
+    <li>list
+    <ul>
+        <li>List</li>
+        <li>inside</li>
+        <li>of</li>
+        <li>list</li>
+    </ul></li>
 </ul>
 </main>
+<!-- END CONTENT -->
 
+<!-- BEGIN FOOTER -->
+<footer><p>Whatever goes in a footer</p></footer>
+<!-- END FOOTER -->
 </div>
-
-<!--Begin footer-->
-<footer>Whatever goes in a footer</footer>
-</div>
+</body>
+</html>
