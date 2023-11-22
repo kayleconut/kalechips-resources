@@ -8,47 +8,55 @@
 
 <style>
 :root {
-  --background: #ece5d9;
-  --textcolor: #3c2b20;
-  
-  /*Link color in content*/
-  --link: #880000;
-  --linkhover: #d87f61;
-  
-  /*Header colors*/
-  --hone: #880000;
-  --htwo: #880000;
-  --hthree: #880000;
-  --hfour: #880000;
-  
-  /*Form colors*/
-  --formcolor: #880000;
-  --formbg: #f1debf;
-  --buttoncolor: #880000;
-  --buttonbg: #f1debf;
-  
-  /*Sidebar header color*/
-  --hsidebar: #880000;
-  
-  /*Site title color*/
-  --title: #880000;
-  
-  /*Background and text colors for tabs*/
-  --tabbg: #d87f61;
-  --tabbghover: #ad4938;
-  --tabtext: #700921;
-  --tabtexthover: #f1debf;
-  
-  /*Text colors for grid/list links*/
-  --navlink: #ad4938;
-  --navlinkhover: #d87f61;
-  
-  /*Background color for the secondary menu links if you want them*/
-  --menulinkbg:none;
-  --menulinkbghover:none;
-  
-  /*Color of the borders around the content*/
-  --divider: #d87f61;
+    /*Fonts*/
+    --headerfont: Georgia, serif;
+    --bodyfont: sans-serif;
+
+    --background: #ece5d9;
+    --textcolor: #3c2b20;
+
+    /*Link color in content*/
+    --link: #880000;
+    --linkhover: #d87f61;
+
+    /*Header colors*/
+    --hone: #880000;
+    --htwo: #880000;
+    --hthree: #880000;
+    --hfour: #880000;
+
+    /*Form colors*/
+    --formcolor: #880000;
+    --formbg: #f1debf;
+    --buttoncolor: #880000;
+    --buttonbg: #f1debf;
+
+    /*Sidebar header color*/
+    --hsidebar: #880000;
+
+    /*Site title color*/
+    --title: #880000;
+    
+    /*Header images*/
+    --banner-desktop:url(https://placehold.co/800x175) no-repeat center;
+    --banner-mobile:url(https://placehold.co/800x175) no-repeat center;
+
+    /*Background and text colors for tabs*/
+    --tabbg: #d87f61;
+    --tabbghover: #ad4938;
+    --tabtext: #700921;
+    --tabtexthover: #f1debf;
+
+    /*Text colors for grid/list links*/
+    --navlink: #ad4938;
+    --navlinkhover: #d87f61;
+
+    /*Background color for the secondary menu links if you want them*/
+    --menulinkbg:none;
+    --menulinkbghover:none;
+
+    /*Color of the borders around the content*/
+    --divider: #d87f61;
 }
 
 /* Reset margins */
@@ -58,294 +66,329 @@
 /* Body styling */
 
 body { 
-	background-color:var(--background);
-	font:10.5pt Verdana, sans-serif;
-	color:var(--textcolor);
+    background-color:var(--background);
+    font:1rem var(--bodyfont);
+    color:var(--textcolor);
 }
 
 /* Wrapper */
 
 #container {
-	max-width:900px;
-	width:80%;
-	margin:20px auto;
-	padding:15px;
+    max-width:900px;
+    width:80%;
+    margin:20px auto;
+    padding:15px;
 }
 
 /* Text title styling */
 
 header {
-	color:var(--title);
-	font:24pt Georgia, Times New Roman, serif;
-	text-transform:uppercase;
-	/* display:none; can be used if you don't want a text header*/
+    color:var(--title);
+    font:2.5em var(--headerfont);
+    text-transform:uppercase;
+    /* display:none; can be used if you don't want a text header*/
 }
 
 /* Top menu styling */
 
 #nav {
-	height:175px;
-	border-bottom:1px solid var(--divider);
-	display:flex;
-	flex-wrap:wrap;
-	background:url(https://placehold.co/800x175) no-repeat center; /* This is where you can put a header image */
-	background-size:cover;
+    height:175px;
+    border-bottom:1px solid var(--divider);
+    display:flex;
+    flex-wrap:wrap;
+    background:var(--banner-desktop); /* This is where you can put a header image */
+    background-size:cover;
 }
 
 #mobileheader {
-	display:none;
-	height:175px;
-	background:url(https://placehold.co/800x175) no-repeat center; /* Also put a header image here for mobile */
-	background-size:cover;
+    display:none;
+    height:175px;
+    background:var(--banner-mobile); /* Also put a header image here for mobile */
+    background-size:cover;
+}
+
+nav li {
+    display:inline-block;
+    list-style:none;
 }
 
 /* Horizontal tab menu */
 
 #horizontal {
-	width:60%;
-	margin-top:145px;
-	font:11pt Georgia, serif;
-	text-transform:uppercase;
+    width:60%;
+    margin-top:145px;
+    font:1rem Georgia, serif;
+    text-transform:uppercase;
 }
 
 #horizontal a {
-	display:inline-block;
-	width:60px;
-	height:25px;
-	color:var(--tabtext);
-	background:var(--tabbg);
-	text-align:center;
-	text-decoration:none;
-	padding-top:5px;
+    display:inline-block;
+    min-width:60px;
+    height:25px;
+    color:var(--tabtext);
+    background:var(--tabbg);
+    text-align:center;
+    text-decoration:none;
+    padding:5px 5px 0 5px;
+    margin-bottom:.3em;
 }
 
 #horizontal a:hover {
-	background:var(--tabbghover);
-	color:var(--tabtexthover);
+    background:var(--tabbghover);
+    color:var(--tabtexthover);
 }
 
 /* Side menu on top */
 
 #secondary {
-	width:35%;
-	margin-top:30px;
-	margin-right:10px;
+    width:35%;
+    margin-top:30px;
+    margin-right:10px;
 }
 
 #secondary a {
-	background:var(--menulinkbg);
+    background:var(--menulinkbg);
 }
 
 #secondary a:hover {
-	background:var(--menulinkbghover);
+    background:var(--menulinkbghover);
 }
 
 /* Styling for the gridded link format */
 
 .grid {
-	text-align:center;
+    text-align:center;
+}
+
+.grid li {
+    width:30%;
 }
 
 .grid a {
-	display:inline-block;
-	width:30%;
-	margin:5px 0px 5px 0px;
-	text-align:center;
+    display:inline-block;
+    margin:5px 0px 5px 0px;
+    text-align:center;
 }
 
 /* Styling for the vertical list link format */
+.list {
+    text-align:center;
+}
+
+.list li {
+    display:block;
+    padding:5px;
+}
 
 .list a {
-	display:block;
-	padding:5px;
-	text-align:center;
+    text-align:center;
 }
 
 /* Colors for all menu links */
 
 .grid a, .list a {
-	font:11pt Georgia, serif;
-	text-decoration:none;
-	color:var(--navlink);
+    font:1rem Georgia, serif;
+    text-decoration:none;
+    color:var(--navlink);
 }
 
 .grid a:hover, .list a:hover {
-	color:var(--navlinkhover);
+    color:var(--navlinkhover);
 }
 
 /* Wrapper for the main columns */
 
 #bottom {
-	display:flex;
-	flex-wrap:wrap;
-	padding-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    padding-top:10px;
 }
 
 /* Content styling */
 
 main {
-	width:60%;
-	padding:0px 10px 0px 0px;
+    width:60%;
+    padding:0px 10px 0px 0px;
 }
 
 /* Paragraphs and links */
 
-main p {
-	margin:10px 0px 10px 0px;
-	line-height:1.4;
+main p, footer p {
+    margin:10px 0px 10px 0px;
+    line-height:1.5;
 }
 
-main a, .text a {
-	color:var(--link);
+main a, .text a, footer a {
+    color:var(--link);
 }
 
-main a:hover, .text a:hover {
-	color:var(--linkhover);
+main a:hover, .text a:hover, footer a:hover {
+    color:var(--linkhover);
 }
 
 /* Header styling */
 
 main h1 {
-	color:var(--hone);
-	font:20pt Georgia, serif;
-	text-align:center;
+    color:var(--hone);
+    font:2.2em var(--headerfont);
+    text-align:center;
 }
 
 main h2 {
-	color:var(--htwo);
-	font:17pt Georgia, serif;
-	text-align:center;
+    color:var(--htwo);
+    font:1.8em var(--headerfont);
+    text-align:center;
 }
 
 main h3 {
-	color:var(--hthree);
-	font:14pt Georgia, serif;
-	text-align:center;
+    color:var(--hthree);
+    font:1.5em var(--headerfont);
+    text-align:center;
 }
 
 main h4 {
-	color:var(--hfour);
-	font:11pt Georgia, serif;
-	text-align:center;
+    color:var(--hfour);
+    font:1em var(--headerfont);
+    text-align:center;
 }
 
 /* Lists */
 
 main ul { 
-	list-style: inside;
-	margin:5px;
+    list-style: inside;
+    margin:5px;
+    line-height:1.5;
 }
 
 main ul li ul {
-	margin-left:15px;
+    margin-left:15px;
 }
 
 /* Form elements */
 
 main input, textarea, select {
-	color:var(--formcolor);
-	background:var(--formbg);
-	font:14px Georgia, serif;
-	border:1px solid;
-	padding:5px;
+    color:var(--formcolor);
+    background:var(--formbg);
+    font:1em Georgia, serif;
+    border:1px solid;
+    padding:5px;
 }
 
 main button {
-	color:var(--buttoncolor);
-	background:var(--buttonbg);
-	font:14px Georgia, serif;
-	border:1px solid;
-	padding:5px;
+    color:var(--buttoncolor);
+    background:var(--buttonbg);
+    font:1em var(--headerfont);
+    border:1px solid;
+    padding:5px;
 }
 
 /* Sidebar styling */
 
 #sidebar {
-	width:35%;
-	padding:0px 0px 0px 10px;
+    width:35%;
+    padding:0px 0px 0px 10px;
+    font-size:0.95rem;
 }
 
-#sidebar h1 {
-	color:var(--hsidebar);
-	font:16pt Georgia, serif;
-	text-align:center;
+#sidebar h2 {
+    color:var(--hsidebar);
+    font:1.4em var(--headerfont);
+    text-align:center;
+    margin:5px;
 }
 
 #sidebar p {
-	margin:5px;
-	line-height:1.4;
+    margin:5px;
+    line-height:1.5;
 }
 
 /* Footer styling */
 
 footer {
-	border-top:1px solid var(--divider);
-	text-align:center;
-	margin-top:10px;
-	padding: 5px;
+    border-top:1px solid var(--divider);
+    text-align:center;
+    margin-top:10px;
+    padding: 5px;
 }
 
 /* Making sure images don't break anything */
 
 img {
-	max-width:95%;
-	margin:5px;
+    max-width:95%;
+    margin:5px;
+}
+
+/* Skip to content */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--background);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
 }
 
 @media screen and (max-width: 799px) {
-	
-	/* This is all mobile compatibility stuff */
-	
-	
-	/* Delete this block if you don't want a header image on mobile */
-	
-	#mobileheader {
-		display:block;
-	}
+    
+    /* This is all mobile compatibility stuff */
+    
+    
+    /* Delete this block if you don't want a header image on mobile */
+    
+    #mobileheader {
+        display:block;
+    }
 
-	#container {
-		width: calc(100% - 30px);
-		margin-top:0px;
-	}
+    #container {
+        width: calc(100% - 30px);
+        margin-top:0px;
+    }
 
-	#nav {
-		background-image:none;
-	}
-	
-	main {
-		flex-grow:1;
-		width:100%;
-		padding:0px 0px 10px 0px;
-		border-bottom:1px solid var(--divider);
-	}
-	
-	#sidebar {
-		width:100%;
-		flex-grow:1;
-		display:grid;
-		grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-		grid-gap:5px;
-		padding:10px 0px 10px 0px;
-	}
-	
-	#horizontal {
-		width:100%;
-		flex-grow:1;
-		margin:0;
-	}
-	
-	#secondary {
-		width:100%;
-		flex-grow:1;
-		margin:0;
-	}
+    #nav {
+        background-image:none;
+    }
+    
+    main {
+        flex: 1 1 100%;
+        padding:0px 0px 10px 0px;
+        border-bottom:1px solid var(--divider);
+    }
+    
+    #sidebar {
+        flex: 1 1 100%;
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-gap:5px;
+        padding:10px 0px 10px 0px;
+    }
+    
+    #horizontal {
+        flex: 1 1 100%;
+        margin:0;
+    }
+    
+    #secondary {
+        flex: 1 1 100%;
+        margin:0;
+    }
 }
-
-
 </style>
 </head>
 <body>
 <div id="container">
+<!-- Please don't remove the next 2 lines! -->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
 
 <header>Site Title</header>
 
@@ -356,24 +399,31 @@ img {
 
 <!--Horizontal tabs. Probably 5 maximum is good to prevent breakage on mobile-->
 <nav id="horizontal">
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
+<ul>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
 </nav>
 
 <!--Side header links-->
 <nav id="secondary" class="grid">
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
+<ul>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
 </nav>
 
 </div>
@@ -381,18 +431,25 @@ img {
 <div id="bottom">
 
 <!-- Begin content -->
-<main>
+<main id="content">
+<section>
 <h1>Header</h1>
-<p>I yanked the structure from <a href="https://www.createblog.com/website-templates/36471-bliss/link" target="blank">this free layout</a> and made it work on phones. There's a lot of space for links on it (more than I'd ever know what to do with), so it's great if you have a ton of pages. But you can also delete sections or just use the sidebar for text or widgets or something. You do you!</p>
+<p>I yanked the structure from <a href="https://www.createblog.com/website-templates/36471-bliss/link">this free layout</a> and made it work on phones. There's a lot of space for links on it (more than I'd ever know what to do with), so it's great if you have a ton of pages. But you can also delete sections or just use the sidebar for text or widgets or something. You do you!</p>
 
+<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/linkmageddon.html">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
+</section>
+
+<section>
 <h2>Navigation</h2>
-
 <p>There are 2 different navigation styles that can be used in the sidebars and in the extra navigation in the header. There are examples of both in the sidebar: the first one uses the class "grid" and the second uses the class "list". I have done my best to make the naming transparent. The "list" class works best in the header if you have only a small number (4-ish) of links that you want to put there, though if you're good with CSS, you can make it fit more if you'd like.</p>
+</section>
 
+<section>
 <h2>Header images</h2>
+<p>There are 2 variables where you'll need to add your header image if you want it to display on both desktop and mobile. The background will resize on different screen sizes, but might still get cut off, so experiment to see how it responds.</p>
+</section>
 
-<p>There are 2 places where you'll need to add your header image if you want it to display on both desktop and mobile. They're commented in the CSS. The background will resize on different screen sizes, but might still get cut off, so experiment to see how it responds.</p>
-
+<section>
 <h2>Formatting</h2>
 <h1>H1</h1>
 <h2>H2</h2>
@@ -403,66 +460,70 @@ img {
 
 <p><input type="text" value="Input" /></p>
 <p><select>
-	<option selected>Selection</option>
-	<option>Option 1</option>
-	<option>Option 2</option>
-	<option>Option 3</option>
+    <option selected>Selection</option>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
 </select></p>
 <p><textarea>Textarea</textarea></p>
 <p><button type="button">Button</button></p>
 
 <ul>
-	<li>This</li>
-	<li>is</li>
-	<li>a</li>
-	<li>list
-	<ul>
-		<li>List</li>
-		<li>inside</li>
-		<li>of</li>
-		<li>list</li>
-	</ul></li>
+    <li>This</li>
+    <li>is</li>
+    <li>a</li>
+    <li>list
+    <ul>
+        <li>List</li>
+        <li>inside</li>
+        <li>of</li>
+        <li>list</li>
+    </ul></li>
 </ul>
+</section>
 </main>
 
-<nav id="sidebar">
+<div id="sidebar">
 
-<!-- Use <div class="section"> if you want a text area-->
-<section class="text">
-<h1>Header</h1>
+<!-- Use <div class="text"> if you want a text area-->
+<div class="text">
+<h2>Header</h2>
 
 <p>What do you even put in sidebars? I've never put a text section in a sidebar.</p>
 
 <p>Currently thinking about: isopods</p>
-</section>
+</div>
 
-<section class="grid">
-<h1>Grid links</h1>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-</section>
+<nav class="grid">
+<h2>Grid links</h2>
+<ul>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
+</nav>
 
-<section class="list">
-<h1>List links</h1>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-<a href="">Link</a>
-</section>
-
+<nav class="list">
+<h2>List links</h2>
+<ul>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
 </nav>
 
 </div>
 
+</div>
+
 <footer>
-You made this website. Crazy!
+<p>You made this website. Crazy!</p>
+
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#horizontal">Back to menu</a></p>
 </footer>
 </div>
 </body>
