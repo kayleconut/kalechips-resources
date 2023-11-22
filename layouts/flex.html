@@ -10,10 +10,14 @@
 <style>
 /* The following CSS applies on all screen sizes */
 
-/* Colors */
+/* Colors and fonts */
 :root {
+    /* Fonts */
+    --bodyfont: sans-serif;
+    --headerfont: Georgia, serif;
+
 	/* Main colors */
-	--background:#5a094a;
+	--background:#5a094a; /* Page background */
 	--color:#2f152f;
 	--block:#f9f8f9; /* Background color for the grid blocks in the content */
 
@@ -45,59 +49,58 @@
 body {
 	background-color:var(--background);
 	background-attachment:fixed;
-	font:12pt Verdana, sans-serif;
+	font:1rem sans-serif;
 	color:var(--color);
 }
 
 /* Rounded corners - feel free to get rid of this or change it */
 
-main section, #sidebar {
+main section, #sidebar-content, #main-footer {
 	border-radius:5px;
 }
 
 /* Sidebar styling */
 
-#sidebar {
+#sidebar-content {
 	text-align:center;
 	background: var(--sidebar);
 	color: var(--sidebarcolor);
 	padding:10px;
-	font-size:12pt;
 }
 
-#sidebar h1 {
+#sidebar-content header {
 	color:var(--title);
-	font:22pt serif;
+	font:1.8em var(--headerfont);
 	margin:8px;
 }
 
-#sidebar p a {
+#sidebar-content p a {
 	color:var(--sidebarlink);
 	transition:0.5s ease;
 }
 
-#sidebar p a:hover {
+#sidebar-content p a:hover {
 	color:var(--sidebarlinkhover);
 	transition:0.5s ease;
 }
 
 .icon img {
-	border-radius:100px; /* This makes the icon a circle - feel free to remove or reduce for a rectangle or square */
-	max-width:95%; /* This can be changed to make the icon smaller; you might have to mess with the border radius too */
+	border-radius:100%; /* This makes the icon a circle - feel free to remove or reduce for a rectangle or square */
+	max-width:150px; /* This can be changed to make the icon smaller; you might have to mess with the border radius too */
 }
 
 /* Styling for the menu */
 
-nav {
-	font:14pt Georgia, serif;
+#main-menu {
+	font:1.1em var(--headerfont);
 	width:100%;
 }
 
-nav ul {
+#main-menu ul {
 	list-style:none;
 }
 
-nav li a {
+#main-menu li a {
 	padding:7px;
 	background:var(--menubg);
 	color:var(--menucolor);
@@ -105,7 +108,7 @@ nav li a {
 	transition:0.5s ease;
 }
 
-nav li a:hover {
+#main-menu li a:hover, #main-menu li a:focus {
 	background: var(--menubghover);
 	color:var(--menucolorhover);
 	transition:0.5s ease;
@@ -119,29 +122,29 @@ main {
 
 /* Styling for blocks */
 
-main section {
+main section, #main-footer {
 	padding:15px;
 	background:var(--block);
 	margin-bottom:10px;
 }
 
 main h1 {
-	font:22pt serif;
+	font:1.8em var(--headerfont);
 	color:var(--h1);
 }
 
 main h2 {
-	font:18pt serif;
+	font:1.5em var(--headerfont);
 	color:var(--h2);
 }
 
 main h3 {
-	font:16pt serif;
+	font:1.3em var(--headerfont);
 	color:var(--h3);
 }
 
 main h4 {
-	font:12pt serif;
+	font:1em var(--headerfont);
 	font-style:italic;
 	color:var(--h4);
 }
@@ -156,14 +159,14 @@ main a {
 	transition:0.5s ease;
 }
 
-main a:hover {
+main a:hover, main a:focus {
 	color:var(--linkhover);
 	transition:0.5s ease;
 }
 
 main ul {
 	list-style-position: outside;
-	margin:0px 0 0px 25px;
+	margin-left: 25px;
 }
 
 main ul li {
@@ -177,7 +180,7 @@ main img {
 main input, textarea, select, button { 
 	background: var(--block);  
 	color: var(--color);
-	font: 12pt Verdana, sans-serif; 
+	font: 1rem var(--bodyfont); 
 	border: 1px solid; 
 	padding: 8px; 
 	margin: 2px;
@@ -192,58 +195,88 @@ main input, textarea, select, button {
 	margin-top:10px;
 }
 
-#sidebar {
+#sidebar-content {
 	width: calc(100% - 20px);
 }
 
-nav li {
+#main-menu li {
 	margin-bottom:15px;
 	display:inline-block;
 }
 
+/* Skip to content button */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--block);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
 /* The following CSS ONLY applies to desktop/big screens */
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 800px) {
 	#container {
-		width:950px;
-		margin:40px auto;
+		max-width:950px;
+        width:90%;
+		margin:25px auto;
+        display:flex;
+        gap:20px;
 	}
 
     #sidebar {
-        float:left;
-		width:200px;
-		position:fixed; /* Remove if you don't want the sidebar to stay in one place */
+		flex: 1 1 calc(25% - 20px);
+        margin-top:10px;
+    }
+    
+    /* Remove or comment out this block if you don't want a sticky sidebar */
+    #sidebar-content {
+        position:sticky;
+        top:10px;
     }
 
 	/* Make menu links into a column */
 
-	nav li {
+	#main-menu li {
 		display:block;
 		margin:0;
 	}
 
-	nav li a {
+	#main-menu li a {
 		display:block;
-		width:186px;
 		border-bottom:1px solid;
 	}
 
     main {
-		margin:0 0 10px 20px;
+        flex: 1 1 calc(75% - 30px);
 		display:flex;
 		flex-wrap:wrap;
-		float:right;
-		width:720px;
 		gap:10px;
     }
 
 	main section {
 		margin:0;
 	}
+    
+    #main-footer {
+        flex: 1 1 calc(100% - 40px);
+        text-align:center;
+    }
 
 	/* Defining grid blocks */
 
-	.full { flex: 0 0 calc(100% - 30px);}
+	.full { flex: 1 1 calc(100% - 40px);}
 	.half { flex: 1 1 calc(50% - 40px); }
 	.third { flex: 1 1 calc(33% - 40px); }
 	.twothird { flex: 1 1 calc(66% - 40px); }
@@ -253,15 +286,19 @@ nav li {
 </style>
 </head>
 <body>
+<!-- Please don't remove the next 2 lines! -->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+
 <div id="container">
 <div id="sidebar">
-
+<div id="sidebar-content">
 <!-- An image can go here if you'd like, or just delete this line if you don't. It doesn't matter what size it is as long as it's square. -->
-<div class="icon"><img src="https://placehold.co/200x200" alt="" /></div>
-<h1>Title</h1>
+<div class="icon"><img src="https://placehold.co/150x150" alt="" /></div>
+<header>Title</header>
 
 <!-- Navigation menu  -->
-<nav>
+<nav id="main-menu">
 <ul>
 	<li><a href="">Link</a></li>
 	<li><a href="">Longer link</a></li>
@@ -271,13 +308,16 @@ nav li {
 </nav>
 <p>Text can go here. You can also add <a href="">inline links</a>. It's best not to make this too long because this moves to the top of the page on mobile.</p>
 </div>
+</div>
 
 <!-- Content area -->
-<main>
+<main id="content">
 <!-- Section tags must be used for blocks -->
 <section class="full">
 <h1>Header</h1>
 <p>This is the base framework that I use for my character pages. Its main feature is that it allows you to easily make a grid with varying element widths, which is ironically something much more easily accomplished with flexbox than grid. It's also a fairly good Tumblr knockoff layout if you're into that.</p>
+
+<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/flex.html" target="_blank">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
 </section>
 
 <section class="full">
@@ -342,6 +382,11 @@ nav li {
 <h2>Quarter-width section</h2>
 <p>Are you bored yet?</p>
 </section>
+
+<footer id="main-footer">
+<p>Footer text</p>
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#main-menu">Back to menu</a></p>
+</footer>
 </main>
 </div>
 </body>
