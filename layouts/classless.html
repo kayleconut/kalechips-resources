@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Classless CSS</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+/* Default colors */
+:root {
+    --color:#212c2c;
+    --background:#e8e3d6;
+    
+    --link:#804E00;
+    --linkhover:#3c6d70;
+    
+    --formbg:#f4f1e9;
+    --formcolor:#212c2c;
+    
+    --accentbg:#e0d9c6;
+    --hr: #bb9860;
+}
+
+/* Alternate colors */
+/* Replace "dark" with "light" and add your light mode colors here if you want your site to be in dark mode by default */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color:#DCD7C9;
+        --background:#2C3639;
+        
+        --link:#9bc4c7;
+        --linkhover:#cca376;
+        
+        --formbg:#232c2f;
+        --formcolor:#DCD7C9;
+        
+        --accentbg:#232c2f;
+        --hr: #5b7e81;
+    }
+}
+
+/* ------ The rest of the code starts here ------- */
+
+* { margin: 0; padding: 0; transition:0.5s ease;}
+img { margin:5px; max-width:100%; }
+
+body { 
+    color:var(--color);
+    background:var(--background);
+    font: 1rem sans-serif; 
+    letter-spacing:.35px;
+}
+
+main {
+    padding:20px;
+    width:90%;
+    max-width:800px;
+    margin:auto;
+}
+
+a {
+    color:var(--link);
+}
+
+a:hover {
+    color: var(--linkhover);
+}
+
+li a {
+    text-decoration:none;
+}
+
+p {
+    margin:10px 0px 10px 0px;
+    line-height:1.5;
+}
+
+main h1 {
+    font:2em Georgia, serif;
+    margin:5px 0 5px 0;
+}
+
+main h2 {
+    margin:10px 0 10px 0;
+    font:1.8em Georgia, serif;
+}
+
+main h3 {
+    margin:5px 0 5px 0;
+    font: 1.5em Georgia, serif;
+}
+
+main h4 {
+    font:1em Georgia, serif;
+    font-style:italic;
+    margin:5px 0 20px 0;
+}
+
+main input, textarea, select, button { 
+    background: var(--formbg);  
+    color: var(--formcolor);
+    font: 1rem sans-serif; 
+    border: 1px solid var(--hr); 
+    padding: 5px; 
+    margin: 5px;
+    border-radius:5px;
+}
+
+main textarea {
+    width:90%;
+}
+
+input[type="submit"], input[type="reset"] {
+    font-size:1rem;
+    background:var(--accentbg);
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background:var(--hr);
+    cursor:pointer;
+}
+
+main table {
+    margin:10px auto 10px auto;
+    padding:5px;
+    width:100%;
+    border-collapse:collapse;
+}
+
+main th {
+    border-bottom:1px solid var(--hr);
+    padding:5px;
+    text-align:left;
+}
+
+main td {
+    padding:3px;
+}
+
+main tr:nth-child(2n) {
+    background:var(--accentbg);
+}
+
+main ul, ol { 
+    list-style-position: outside;
+    margin: 8px 0 8px 20px;
+}
+
+main li {
+    margin:5px 0 5px 0;
+    line-height:1.5;
+}
+
+main ul li ul, main ol li ol {
+    margin-left:15px;
+}
+
+main blockquote {
+    padding:10px;
+    border-left:10px solid var(--hr);
+    background:var(--accentbg);
+}
+
+main blockquote cite {
+    font-size:0.95em;
+    position:relative;
+    right:0;
+}
+
+main summary {
+    cursor:pointer;
+    margin: 5px 0px 5px 0px;
+}
+
+main details {
+    padding:10px;
+    background:var(--accentbg);
+    margin:5px 0 5px 0;
+    border-radius:5px;
+}
+
+main hr {
+    border:0.5px solid var(--hr);
+    margin:20px auto 20px auto;
+}
+
+main pre {
+    padding:10px;
+    background:var(--accentbg);
+    margin:10px auto 10px auto;
+    border-radius:5px;
+    overflow:auto;
+}
+
+main footer {
+    text-align:center;
+    border-top: 0.5px solid var(--hr);
+    margin-top:10px;
+    padding:10px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    main img {
+        opacity:0.6;
+    }
+    
+    main img:hover {
+        opacity:1;
+    }
+
+    main a img:hover {
+        opacity:1;
+    }
+}
+</style>
+
+</head>
+<body>
+<main>
+<section>
+<h1>Classless CSS</h1>
+<p>Classless CSS allows you to make a nice looking page with only basic semantic HTML! It's called classless because it isn't dependent on a special HTML structure. The CSS can also just be used as a template for other grander endeavors.</p>
+</section>
+
+<section>
+<h2>How to use</h2>
+<p>You can download the CSS from <a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/classless.css">Github</a>, or just copy it out of the source code.</p>
+
+<p>For the styling to work properly, at minimum you need to enclose your content in <code>&lt;main&gt;</code> tags. That's basically it! It's also good practice to use <code>&lt;section&gt;</code> tags to mark sections off properly, but that's not necessary for everything to work. You can also put a <code>&lt;footer&gt;</code> in before you close your <code>main</code> tag for a footer.</p>
+
+<p>This entire HTML page can also be used as a code template if you're not sure!</p>
+
+<h3>Modifying colors</h3>
+<p>All colors are defined via variables at the top of the CSS. If you'd like your default colors to be dark, change <code>dark</code> to <code>light</code> in the media query and change your colors accordingly.</p>
+
+<h3></h3>
+</section>
+
+<hr/>
+
+<section>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+
+<form> 
+<p><input placeholder="You can edit this"></p>
+<p><input readonly value="You can't edit this"></p>
+<p><input disabled placeholder="You can't edit this either"></p>
+<textarea placeholder="Textarea"></textarea>
+<p><select>
+    <option selected>Selection</option>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+</select></p>
+
+<input type="submit" value="Submit"> <input type="reset" value="Reset"> </form>
+
+<p><pre><code>This is a code block! If your screen is too narrow, it will scroll.</code></pre>
+
+<img src="https://placekitten.com/400/300" alt="Example kitten">
+
+<table> <thead> <tr> <th>Name</th> <th>Quantity</th> <th>Price</th> </tr> </thead> <tbody> <tr> <td>Godzilla</td> <td>2</td> <td>$299.99</td> </tr> <tr> <td>Mozilla</td> <td>10</td> <td>$100,000.00</td> </tr> <tr> <td>Quesadilla</td> <td>1</td> <td>$2.22</td> </tr> </tbody> </table> <details> <summary>Summary</summary> <p>Details</p> </details>
+
+<p><strong>This is strong,</strong> this is normal, <em>and this is emphasized!</em> <a href="/">This is a link.</a></p>
+
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+<p>"The HTML blockquote Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#Usage_notes">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <code>cite</code> attribute, while a text representation of the source can be given using the <code>&lt;cite&gt;</code> cite element."</p>
+<cite>MDN, "The Block Quotation element"</cite>
+</blockquote> 
+
+<ul>
+    <li>Unordered list item 1</li>
+    <li>Unordered list item 2</li>
+    <li>Unordered list item 3
+    <ul>
+        <li>Nested list</li>
+    </ul></li>
+</ul> 
+
+<ol>
+    <li>Ordered list item 1</li>
+    <li>Ordered list item 2</li>
+    <li>Ordered list item 3    
+    <ol>
+        <li>Nested list</li>
+    </ol></li>
+</ol>
+
+<footer>
+<a href="#">Back to top</a>
+</footer>
+</main>
+</body>
+</html>
