@@ -63,7 +63,7 @@ img { margin:2px; max-width:100%; }
 body {
     background: var(--background) var(--gradient);
     color: var(--color);
-    font:13pt sans-serif;
+    font:1rem sans-serif;
     letter-spacing:0.2px;
 }
 
@@ -81,7 +81,7 @@ body {
 
 header {
     text-align:center;
-    font:30pt serif;
+    font:2.3em serif;
     /* Optional banner - uncomment the following: */
     /*
     height: 150px;
@@ -91,22 +91,22 @@ header {
 
 /* Top menu styling */
 
-#top {
+#topmenu {
     text-align:center;
 }
 
-#top li {
+#topmenu li {
     display:inline-block;
     list-style:none;
 }
 
-#top li a {
+#topmenu li a {
     display:inline-block;
     border-bottom:3px solid;
     text-decoration:none;
     margin:2px;
     padding:2px;
-    font:20pt serif;
+    font:1.6em serif;
     text-transform:lowercase;
     color: var(--toplink);
 }
@@ -140,16 +140,16 @@ main a:hover, #sidebar p a:hover {
 }
 
 main h1 {
-    font:24pt serif;
+    font:2em serif;
 }
 
 main h2 {
-    font: 20pt serif;
+    font: 1.8em serif;
     font-style:italic;
 }
 
 main h3 {
-    font: 16pt serif;
+    font: 1.5em serif;
     font-style:italic;
 }
 
@@ -165,7 +165,7 @@ main li {
 main input, textarea, select, button { 
 	background: var(--contentbg);  
 	color: var(--color);
-	font: 13pt sans-serif; 
+	font: 1rem sans-serif; 
 	border: 1px solid; 
 	padding: 8px; 
 	margin: 2px;
@@ -180,8 +180,8 @@ main input, textarea, select, button {
     border-radius:3px;
 }
 
-#sidebar h1 {
-    font:18pt serif;
+#sidebar h2 {
+    font:1.8em serif;
     text-align:center;
     text-transform:lowercase;
     font-style:italic;
@@ -209,7 +209,26 @@ footer {
     text-align:center;
     margin-top:15px;
     padding:10px 10px 0 10px;
-    font-size:12pt;
+    font-size:1em;
+}
+
+/* Skip button */
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--contentbg);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
 }
 
 /* Desktop styling */
