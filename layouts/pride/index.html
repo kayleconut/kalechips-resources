@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-<title>TITLE HERE</title>
+<title>Pride layout</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
@@ -10,15 +10,15 @@
 <link rel="stylesheet" type="text/css" href="style.css" /> <!-- Change to whatever you saved your stylesheet as -->
 </head>
 <body>
+<!-- Don't delete these lines! -->
+<div id="top"></div>
+<div id="skip"> <a href="#content">Skip to content</a> </div>
 
+<!-- Start container -->
 <div id="container">
-<!-- Begin header -->
 <header>Website title</header>
-
-<!-- Begin menu -->
-<nav id="top">
+<nav id="topmenu">
 <ul>
-    <!-- Use <li> tags to add links -->
     <li><a href="">Link</a></li>
     <li><a href="">Link</a></li>
     <li><a href="">Link</a></li>
@@ -28,25 +28,19 @@
     <li><a href="">Link</a></li>
 </ul>
 </nav>
-
 <div id="content">
-<!-- Begin main content -->
 <main>
-<!-- Type here -->
+<h1>Title</h1>
+<p>Content</p>
 </main>
-
-<!-- Begin sidebar -->
 <div id="sidebar">
-
-<!-- Use the section class to add text -->
 <div class="section">
-<h1>Section</h1>
-<p>Text</p>
+<h2>Section</h2>
+<p>Text can go here! <a href="">So can links!</a></p>
 </div>
 
-<!-- Use nav to add a menu -->
 <nav>
-<h1>Section</h1>
+<h2>Section</h2>
 <ul>
     <li><a href="">Link</a></li>
     <li><a href="">Link</a></li>
@@ -57,9 +51,9 @@
 </div>
 </div>
 
-<!-- Begin footer -->
 <footer>
-<!-- Type here -->
+<p>Bottom text</p>
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#topmenu">Back to menu</a></p>
 </footer>
 </div>
 </body>
