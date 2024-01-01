@@ -302,6 +302,19 @@ footer {
 
 }
 </style>
+
+<script>
+window.onload = function () {
+    let burger = document.getElementById("burger");
+
+    burger.addEventListener("keydown", (event) => {
+        let key = event.code;
+        if (key == "Escape") {
+            burger.removeAttribute("open");
+        }
+    });
+};
+</script>
 </head>
 <body>
 <!-- SKIP TO CONTENT BUTTON, DO NOT DELETE -->
