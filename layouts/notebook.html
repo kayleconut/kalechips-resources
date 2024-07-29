@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Notebook</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+/* The following CSS applies on all screen sizes */
+
+/* Colors and fonts */
+:root {
+    /* Fonts */
+    --bodyfont: sans-serif;
+    --headerfont: monospace;
+
+    /* Main colors */
+    --background:#ffc070; /* Page background */
+    --color:#4d0010;
+    --block:#fff0d1; /* Background color for the grid blocks in the content */
+    --lines:#ffc9b4; /* Color for the background lines */
+    --shadow:#ff7460; /* Color for the drop shadow */
+
+    --link:#b63700;
+    --linkhover:#d6083a;
+
+    --h1:#4d0010;
+    --h2:#4d0010;
+    --h3:#4d0010;
+    --h4:#4d0010;
+
+    /* Sidebar colors */
+    --sidebar:#fff0d1;
+    --sidebarcolor:#4d0010;
+    --title: #4d0010;
+    --sidebarlink: #b63700;
+    --sidebarlinkhover:#d6083a;
+
+    /* Menu colors */
+    --menucolor:#b63700;
+    --menucolorhover:#d6083a;
+
+    /* Tape colors */
+    --tape: #ff9575;
+    --tape-edge: #ec714c;
+}
+
+* { margin:0; padding:0; }
+
+/* Main body styling */
+body {
+    background-color:var(--background);
+    background-attachment:fixed;
+    font:1rem sans-serif;
+    color:var(--color);
+}
+
+/* Rounded corners - feel free to get rid of this or change it */
+
+.article-content, #sidebar-content, #main-footer {
+    border-radius:5px;
+}
+
+/* Sidebar styling */
+
+#sidebar-content {
+    background: var(--sidebar);
+    color: var(--sidebarcolor);
+    padding:10px;
+    border:1px solid var(--linkhover);
+    box-shadow:5px 5px 0 var(--shadow);
+}
+
+.sidebar-columns {
+    display:flex;
+    gap:10px;
+}
+
+#sidebar-content header {
+    color:var(--title);
+    font:1.5em var(--headerfont);
+    margin:8px 0 8px 0;
+}
+
+#sidebar-content p a {
+    color:var(--sidebarlink);
+    transition:0.5s ease;
+}
+
+#sidebar-content p a:hover {
+    color:var(--sidebarlinkhover);
+    transition:0.5s ease;
+}
+
+.icon {
+    margin:auto;
+}
+
+.icon img {
+    border-radius:10px;
+    width:90px; /* This can be changed to make the icon smaller; you might have to mess with the border radius too */
+    height:auto; /* Preserves aspect ratio */
+}
+
+/* Styling for the menu */
+
+#main-menu {
+    font:1.1em var(--headerfont);
+    width:100%;
+    margin-top:20px;
+}
+
+#main-menu ul {
+    list-style:none;
+}
+
+#main-menu li {
+    display:inline-block;
+}
+
+#main-menu li a {
+    padding:3px;
+    color:var(--menucolor);
+    text-decoration:none;
+    transition:0.5s ease;
+    border-bottom:1px solid;
+
+}
+
+#main-menu li a:hover, #main-menu li a:focus {
+    color:var(--menucolorhover);
+    transition:0.5s ease;
+}
+
+/* Content styling */
+
+main {
+    margin-top:20px;
+}
+
+/* Styling for blocks */
+
+main .post {
+    margin-bottom:50px;
+    width:100%;
+}
+
+.article-content, #main-footer {
+    padding:22px;
+    width:calc(100% - 44px);
+    border:1px solid var(--linkhover);
+    box-shadow:5px 5px 0 var(--shadow);
+    background:linear-gradient(var(--block) 0px, var(--block) 30px, var(--lines) 31px);
+    background-size:100% 32px;
+}
+
+main img.postimage {
+    border-radius:5px;
+    border:1px solid var(--linkhover);
+    margin:0 auto 10px auto;
+}
+
+main h1 {
+    font:1.8em var(--headerfont);
+    color:var(--h1);
+}
+
+main h2 {
+    font:1.5em var(--headerfont);
+    color:var(--h2);
+}
+
+main h3 {
+    font:1.3em var(--headerfont);
+    color:var(--h3);
+}
+
+main h4 {
+    font:1em var(--headerfont);
+    font-style:italic;
+    color:var(--h4);
+}
+
+p {
+    line-height:1.5;
+    margin:10px 0 10px 0;
+}
+
+main a {
+    color:var(--link);
+    transition:0.5s ease;
+}
+
+main a:hover, main a:focus {
+    color:var(--linkhover);
+    transition:0.5s ease;
+}
+
+main ul {
+    list-style-position: outside;
+    margin-left: 25px;
+}
+
+main ul li {
+    line-height:1.5;
+}
+
+main img {
+    max-width:100%;
+}
+
+main pre {
+    background:var(--lines);
+    padding:10px;
+    margin:5px;
+    border-radius:5px;
+    max-width:600px;
+    max-height:300px;
+    overflow:auto;
+}
+
+main input, textarea, select, button { 
+    background: var(--block);  
+    color: var(--color);
+    font: 1rem var(--bodyfont); 
+    border: 1px solid; 
+    padding: 8px; 
+    margin: 2px;
+}
+
+main details {
+    background: var(--lines);
+    padding:10px;
+    margin:5px;
+    border-radius:5px;
+}
+
+main details summary {
+    cursor: pointer;
+}
+
+.article-footer {
+    margin-top:15px;
+}
+
+.tag, .date {
+    display:inline-block;
+    background: var(--block);
+    padding:5px;
+    border-radius:3px;
+    box-shadow:2px 2px 0 var(--shadow);
+    border:1px solid var(--linkhover);
+    margin:0.25em 0 0.25em 0;
+}
+
+#main-footer {
+    text-align:center;
+}
+
+.tape::before {
+    content:"";
+    display:block;
+    height: 30px;
+    margin:-28px auto 5px auto;
+    width: 50%;
+    max-width:150px;
+    background-color: var(--tape);
+    border-right: 1px dotted var(--tape-edge);
+    border-left: 1px dotted var(--tape-edge);
+    opacity: 0.5;
+    box-shadow:0.5px 0.5px 1px rgb(0,0,0,0.2);
+}
+
+
+/* The following CSS ONLY applies to mobile/small screens */
+
+/* Container styling */
+#container {
+    width: calc(100% - 40px);
+    padding:20px;
+    margin-top:10px;
+}
+
+#sidebar-content {
+    width: calc(100% - 20px);
+}
+
+#main-menu li {
+    margin-bottom:15px;
+    display:inline-block;
+}
+
+/* Skip to content button */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--block);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+/* The following CSS ONLY applies to desktop/big screens */
+
+@media screen and (min-width: 800px) {
+    #container {
+        max-width:1100px;
+        width:90%;
+        display:flex;
+        gap:20px;
+        margin:25px auto;
+    }
+
+    main {
+        margin-top:10px;
+    }
+
+    #sidebar {
+        flex: 1 1 calc(30% - 20px);
+        margin-top:10px;
+    }
+
+
+    .icon {
+        margin-top:-35px;
+        margin-left:-40px;
+    }
+    
+    /* Remove or comment out this block if you don't want a sticky sidebar */
+    #sidebar-content {
+        position:sticky;
+        top:40px;
+    }
+
+    .sidebar-columns {
+        display:block;
+    }
+
+    main {
+        flex: 1 1 calc(70% - 30px);
+    }
+    
+    .article-footer {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .tag, .notes {
+        margin:0;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Please don't remove the next 2 lines! -->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+
+<div id="container">
+<div id="sidebar">
+<div id="sidebar-content" class="tape"> <!-- Remove the tape class if you don't want the tape -->
+<div class="sidebar-columns">
+<div class="icon"><!-- Icon, just remove this line if you don't want it --><img src="https://placehold.co/100x100" width="90" height="90" alt="" /></div>
+<div>
+<!-- Site title-->
+<header>Notebook</header>
+
+<!-- Sidebar text -->
+<p>Sidebar text goes here</p>
+
+<nav id="main-menu">
+<ul>
+<!-- Links! You can have as many as you want! -->
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Content area -->
+<main id="content">
+<section class="post">
+<div class="article-content">
+<h1>Notebook layout</h1>
+<p>This is a modification of my <a href="flex">flexbox template</a> that I made specifically for <a href="/ocs/characters/farah/tumbler">Farah's offbrand Tumblr page</a>. As a result, it's very specifically geared towards blogs. I've tried to strip out some stuff to make it a little more general-purpose, but it will still be easiest to use with blogs. As always, you're free to mutilate it to fit your needs. Alternatively, if you really want to go ham-handed on the knockoff Tumblr approach, you can rip the code from the aforementioned Farah Tumblr page, which includes stuff like "reblogs."</p>
+
+<p>Most of the visual branding of this thing, along with the name itself, is inspired by the <a href="https://notebooktheme.tumblr.com/">Notebook Tumblr theme</a>.</p>
+</div>
+<footer class="article-footer"><div class="date">20 April 1969</div></footer>
+</section>
+
+<section class="post">
+<div class="article-content">
+<h2>Using this abomination</h2>
+<p>Is this annoyingly complex? Yes. Is it still easier to parse than a real Tumblr theme? Also yes.</p>
+
+<h3>Adding blocks</h3>
+<p>There is a very specific element wrapping pattern you need to follow for the styling to look correct. Usually, you'll probably be splitting your page into sections, so use the <code>&lt;section&gt;</code> tag with the <code>"post:</code> class with the following structure:</p>
+
+<pre><code>&lt;section class="post"&gt;
+&lt;div class="article-content"&gt;
+THIS IS WHERE YOUR TEXT ACTUALLY GOES
+&lt;/div&gt;
+&lt;footer class="article-footer"&gt;&lt;div class="date"&gt;Optional footer line, you can put a date here. Delete if not using&lt;/div&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+
+<p>There are two scenarios where you don't want to use <code>section</code>: if you're doing an actual list of blog posts, each post should be wrapped in an article tag, so use <code>&lt;article class="post"&gt;</code> instead. If you're just using the boxes for stylistic purposes, use <code>&lt;div class="post"&gt;</code>. (If you're not sure whether that's the case, you should most likely use a regular <code>div</code> if there's no header at the beginning of the section.)</p>
+
+<h3>Tags</h3>
+<p>The footer is optional, so just delete it if you don't want it. You can also add "tags" to the footer in true Tumblr fashion:</p>
+
+<pre><code>&lt;footer class="article-footer"&gt;&lt;div class="date"&gt;Date or whatever&lt;/div&gt; &lt;div class="tags"&gt; &lt;span class="tag"&gt;#tag here&lt;/span&gt; &lt;/div&gt; &lt;/footer&gt;</code></pre>
+
+<p>Tags can contain links without any issues.</p>
+
+<h3>Image posts</h3>
+
+<p>You can add a main image to a section by putting it in front of the <code>article-content</code> element. It will separate the image from the rest of the "post" content like in a Tumblr image post. If you want inline images (i.e. the image is inside the box), you can just add them normally.</p>
+
+<pre><code>&lt;section class="post"&gt;
+&lt;img src="IMAGE PATH" alt="ALT TEXT" class="postimage" /&gt;
+&lt;div class="article-content"&gt;
+THIS IS WHERE YOUR TEXT ACTUALLY GOES
+&lt;/div&gt;
+&lt;footer class="article-footer"&gt;&lt;div class="date"&gt;FOOTER&lt;/div&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+
+<p>If you're still confused, the next post has the full enchilada (image and tags) as a demo.</p>
+
+</div>
+<footer class="article-footer"><div class="date">600 BC</div></footer>
+</section>
+
+<section class="post">
+<img src="https://kalechips.net/ocs/characters/farah/tumbler/lungfish.png" alt="Lungfish meme" class="postimage" />
+<div class="article-content">
+<details>
+<summary>Image description</summary>
+<p>A meme reading "I am not a toy. I am not a Christmas present. I am a 109 year commitment. Please think hard before you give someone an Australian Lungfish this Christmas." The text is superimposed on a photo of an Australian Lungfish.</p>
+</details>
+</div>
+<footer class="article-footer"><div class="date">578 notes</div> <div class="tags"><span class="tag">#memes</span> <span class="tag">#funny</span></div></footer>
+</section>
+
+<section class="post">
+<div class="article-content">
+<h2>More demos</h2>
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+</div>
+</section>
+
+<footer id="main-footer">
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#main-menu">Back to menu</a></p>
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Panorama header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* COLORS, IMAGES, AND FONTS */
+:root {
+    /* FONTS */
+    --bodyfont: Tahoma, Arial, sans-serif;
+    --headerfont: "Century Gothic", Futura, sans-serif;
+
+    /* COLORS */
+    --background-color:#fdf6e3; /*Background color*/
+    --background: var(--background-color); /*You can add an image here using the usual CSS shorthand: url(PATH TO IMAGE)*/
+    --color:#002B36; /*Text color*/
+
+    /* Header background image, using the usual CSS shorthand. Experiment with placements! */
+    --headerbackground: #657B83 url(https://placehold.co/1000x400) no-repeat center; 
+    
+    /* Navigation buttons */
+    --nav:#aa0e5a; /*Background color*/
+    --navcolor:#f8f8f2; /*Text color*/
+    --navhover:#c40c66; /*Hover background*/
+    --navhovercolor:#f8f8f2;/*Text color on hover*/
+
+    /* Body links */
+    --link:#5b6900;
+    --linkhover:#aa0e5a;
+    
+    /* Accent colors */
+    --accent:#117c74;
+    --borders:#586E75;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background-color:#002b36;
+        --background: var(--background-color);
+        --color:#95b1bb;
+        
+        --nav:#D33682;
+        --navcolor:#002b36;
+        --navhover:#ee4898;
+        --navhovercolor:#282a36;
+        
+        --link:#88CF76;
+        --linkhover:#D33682;
+        
+        --accent:#43B8C3;
+        --borders:#657B83;
+    }
+}
+
+* { margin:0; padding:0;  transition:color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease; }
+img { max-width:100%; }
+
+body {
+    background:var(--background);
+    color:var(--color);
+    font:1.05rem var(--bodyfont);
+    line-height:1.5;
+    letter-spacing:0.2px;
+}
+
+header {
+    background:var(--headerbackground);
+    background-size:cover;
+    height:300px;
+}
+
+#container {
+    max-width:900px;
+    width:calc(100% - 40px);
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#sidebar {
+    padding:15px;
+    margin-top:10px;
+    flex: 1 1 calc(20% - 30px);
+}
+
+.menu {
+    position:sticky;
+    top:10px;
+}
+
+.menu li {
+    list-style:none;
+    display:block;
+    font:1.4rem var(--headerfont);
+}
+
+.menu a {
+    display:block;
+    text-decoration:none;
+    padding:10px;
+    background:var(--nav);
+    color:var(--navcolor);
+    margin-bottom:5px;
+    border-radius:5px;
+}
+
+.menu a:hover {
+    background:var(--navhover);
+    color:var(--navhovercolor);
+}
+
+main {
+    padding:15px;
+    flex: 1 1 calc(80% - 30px);
+}
+
+main p, footer p {
+    margin: .5em 0 .5em 0;
+}
+
+main a, footer a {
+    color:var(--link);
+}
+
+main a:hover, footer a:hover {
+    color:var(--linkhover);
+}
+
+main li {
+    margin-left:30px;
+}
+
+main h1 {
+    font: 2em var(--headerfont);
+    font-weight:bold;
+    border-bottom: 3px dotted var(--borders);
+    margin-bottom:5px;
+}
+
+main h1::first-letter {
+    font-size:1.1em;
+    color:var(--accent);
+}
+
+main h2 {
+    font: 1.8em var(--headerfont);
+    margin-bottom:5px;
+}
+
+main h3 {
+    font:1.5em var(--headerfont);
+    margin-bottom:5px;
+}
+
+main summary {
+    cursor:pointer;
+    margin: 5px 0px 5px 0px;
+}
+
+main details {
+    padding:10px;
+    background:rgb(0,0,0,0.06);
+    margin:5px 0 5px 0;
+    border-radius:5px;
+}
+
+main input, textarea, select, button { 
+	background: var(--background-color);
+	color: var(--color);
+	font: 1rem var(--bodyfont);
+	border: 1px solid var(--borders);
+	padding: 8px;
+	margin: 2px;
+}
+
+footer {
+    text-align:center;
+    font-size:.9em;
+    flex: 1 1 calc(100% - 20px);
+    padding:10px;
+    border-top:2px dotted var(--borders);
+}
+
+.visually-hidden {  
+    position: absolute;
+    clip: rect(0 0 0 0);
+    visibility: hidden;
+    opacity: 0;
+}
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--background);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+@media screen and (max-width:799px) {
+	header {
+        height:200px;
+    }
+    
+    #container {
+        display:block;
+    }
+    
+    #sidebar {
+        text-align:center;
+        margin:0;
+        padding:10px;
+    }
+    
+    .menu {
+        position:relative;
+    }
+    
+    .menu li, .menu a {
+        display:inline-block;
+        padding:5px;
+        margin:0;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Don't remove!-->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+
+<!-- Put your site title here - it won't be visible, but screen readers can read it -->
+<header><div class="visually-hidden">Website title</div></header>
+<div id="container">
+<div id="sidebar">
+<nav id="main-menu" class="menu">
+<ul>
+    <!-- Put links here. You can put as many as you want but they might not look good at high volumes-->
+	<li><a href="">Link</a></li>
+	<li><a href="">Link</a></li>
+	<li><a href="">Link</a></li>
+	<li><a href="">Link</a></li>
+</ul>
+</nav>
+</div>
+<main id="content">
+<!-- Content goes here -->
+<h1>Header</h1>
+<p>This is the layout of <a href="http://fan.kalechips.net">Odonata</a>, now packaged up for public use! It's called panorama because of the giant full-width header image. It will resize on mobile as well, but the edges might get cut off, so experiment with different images to make sure anything important remains in frame on smaller screens.</p>
+
+<p><a href="">Copy the source of this code on Github</a> or just rip it from the browser directly. Everything you need is inline!</p>
+
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+<p><a href="">That's a link</a></li>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+</main>
+<footer>
+<!-- Footer -->
+<p>Footer text</p>
+
+<nav><p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#main-menu">Back to menu</a></p></nav>
+</footer>
+</div>
+</body>
+</html>
