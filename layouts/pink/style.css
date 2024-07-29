@@ -1,0 +1,215 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Kristi';
+    font-style: normal;
+    font-weight: 400;
+    /* Change these paths if necessary: */
+    src: url('fonts/kristi-v21-latin-regular.woff2') format('woff2'), 
+       url('fonts/kristi-v21-latin-regular.ttf') format('truetype'); 
+}
+
+:root {
+    /* Fonts */
+    --titlefont:'Kristi', Georgia, serif;
+    --headerfont:Georgia, serif;
+    --bodyfont:Georgia, serif;
+
+    /* Images - change paths if necessary */
+    --backgroundimage:url(img/background.png);
+    --headerimage:url(img/head.jpg);
+    --boximage:url(img/quote.jpg);
+    
+    /* Colors */
+    --backgroundcolor:#ccc;
+    --contentbackground:#FFF;
+
+    --contentcolor:#4f4f4f;
+    --footercolor:#444;
+
+    --title:#cb4377;
+    --header1:#cb4377;
+    --header2:#546926;
+    --header3:#cb4377;
+
+    --navlink:#546926;
+    --navlinkhover:#cb4377;
+    --navlinkborder:#f47fac;
+    --navlinkborderhover:#b3d167;
+
+    --link:#982a54;
+    --linkhover:#cd2b94;
+    --linkborder:#b3d167;
+
+    --formbackground:#FFF;
+    --formcolor:#982a54;
+    --formborder:#b3d167;
+
+    --boxbackground:#ccc;
+    --boxcolor:#555;
+    --boxborder:#999;
+
+    --footerlink:#982a54;
+    --footerlinkhover:#cd2b94;
+    
+}
+
+* { /*reset margin and padding*/
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+body {
+    background:var(--backgroundimage) fixed var(--backgroundcolor);
+    font:1rem var(--bodyfont);
+    line-height:1.5;
+}
+
+#container {
+    margin:50px auto 20px auto;
+    background-color:var(--contentbackground);
+    max-width:500px;
+    width:90%;
+}
+
+#banner {
+    width:100%;
+    height:200px;
+    background:var(--headerimage) no-repeat center;
+    background-size:cover;
+}
+
+#title {
+    font:2.7em var(--titlefont);
+    color:var(--title);
+    text-transform:lowercase;
+    text-align:center;
+    padding:5px;
+}
+
+
+#navigation {
+    width:calc(100% - 10px);
+    text-align:center;
+    padding:5px;
+}
+
+#navigation ul li {
+    display:inline-block;
+    list-style:none;
+    padding: .25em .5em .25em 0;
+}
+
+#navigation ul li a {
+    font:1.4em var(--headerfont);
+    color:var(--navlink);
+    text-decoration:none;
+    border-bottom:3px solid var(--navlinkborder);
+}
+
+#navigation ul li a:hover, #navigation ul li a:focus {
+    color:var(--navlinkhover);
+    border-bottom:3px solid var(--navlinkborderhover);
+}
+
+#content {
+    text-align:justify;
+    color:var(--contentcolor);
+    padding:0 20px 20px 20px;
+    width:var(100% - 40px);
+}
+
+    #content p {
+        margin:1em 0 1em 0;
+    }
+    
+    #content h1 {
+        border-bottom:1px solid #eab3c8;
+        font:1.7em var(--headerfont);
+        color:var(--header1);
+        margin:0.25em 0 0.25em 0;
+    }
+    
+    #content h2 {
+        color:var(--header2);
+        font:1.5em var(--headerfont);
+        text-transform:lowercase;
+        border-bottom:1px solid #ccc;
+        margin:0.25em 0 0.25em 0;
+    }
+
+    #content h3 {
+        font:1.3em var(--headerfont);
+        text-transform:lowercase;
+        font-style:italic;
+        color:var(--header3);
+        margin:0.25em 0 0.25em 0;
+    }
+    
+    #content a {
+        color:var(--link);
+        border-bottom:2px solid var(--linkborder);
+    }
+    
+    #content a:hover {
+        color:var(--linkhover);
+        text-decoration: line-through;
+    }
+    
+    #content li {
+        margin:.5em 0 .5em 1.5em;
+        list-style-position:outside;
+    }
+    
+    #content blockquote, #content .box {
+        background:var(--boximage) var(--boxbackground);
+        color:var(--boxcolor);
+        border:1px solid var(--boxborder);
+        padding:15px;
+    }
+    
+    #content input, #content textarea, #content select, #content button {
+        background:var(--formbackground);
+        color:var(--formcolor);
+        border:1px solid var(--formborder);
+        padding:5px;
+        margin-top:5px;
+        font:1em var(--bodyfont);
+    }
+
+#footer {
+    text-align:center;
+    color:var(--footercolor);
+    max-width:100%;
+}
+    
+    #footer a {
+        color:var(--footerlink);
+    }
+    
+    #footer a:hover, #footer a:focus {
+        color:var(--footerlinkhover);
+        text-decoration: line-through;
+    }
+
+    #footer p {
+        margin:0.5em 0 0.5em 0;
+    }
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--contentbackground);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
