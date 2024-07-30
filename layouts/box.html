@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Cardboard box</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+/* The following CSS applies on all screen sizes */
+
+/* Colors and fonts */
+:root {
+    /* Fonts */
+    --bodyfont: sans-serif;
+    --headerfont: Georgia, serif;
+    
+    /* Images */
+    --banner-image-mobile:url(https://placehold.co/800x300) no-repeat; /* Banner background image for mobile (wide) */
+    --banner-image-desktop:url(https://placehold.co/300x800) no-repeat; /* Banner background image for desktop (tall) */
+    --banner-position-mobile:center; /* Banner background position on small screens */
+    --banner-position-desktop:center; /* Banner background position on big screens */
+
+    /* Main colors */
+    --background:#233643; /* Page background */
+    --color:#23110b;
+    --block:#ebf0f3; /* Background color for the grid blocks in the content */
+
+    --link:#a02400;
+    --linkhover:#092456;
+
+    --footerlink:#f5d1c2;
+    --footerlinkhover:#d7f1ff;
+
+    --h1:#23110b;
+    --h2:#23110b;
+    --h3:#23110b;
+
+    --header:#FFF; /* Title color */
+    --footer:#ebf0f3; /* Footer text color */
+
+    /* Menu colors */
+    --menubg:#ebf0f3;
+    --menucolor:#a02400;
+    --menubghover:#a02400;
+    --menucolorhover:#ebf0f3;
+}
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --background:#233643; /* Page background */
+        --color:#d0dae0;
+        --block:#182832; /* Background color for the grid blocks in the content */
+
+        --link:#fcac95;
+        --linkhover:#c9e5f4;
+
+        --footerlink:#f5d1c2;
+        --footerlinkhover:#d7f1ff;
+
+        --h1:#d0dae0;
+        --h2:#d0dae0;
+        --h3:#d0dae0;
+
+        --header:#d0dae0;
+
+        /* Menu colors */
+        --menubg:#d0dae0;
+        --menucolor:#a02400;
+        --menubghover:#a02400;
+        --menucolorhover:#d0dae0;
+    }
+}
+
+* { margin:0; padding:0; }
+
+/* Main body styling */
+body {
+    background:var(--background);
+    font:1rem sans-serif;
+    color:var(--color);
+}
+
+#main-header {
+    font:2.5em var(--headerfont);
+    color:var(--header);
+    text-align:center;
+    margin-bottom:10px;
+}
+
+#banner {
+    background:var(--banner-image-mobile);
+    background-position:var(--banner-position-mobile);
+    background-size:cover;
+    height:200px;
+}
+
+/* Styling for the menu */
+
+#main-menu {
+    font:1.1em var(--headerfont);
+    width:100%;
+    text-align:center;
+}
+
+#main-menu ul {
+    list-style:none;
+}
+
+#main-menu li {
+    display:inline-block;
+    margin: .25em .25em 0 0;
+}
+
+#main-menu li a {
+    padding:7px;
+    background:var(--menubg);
+    color:var(--menucolor);
+    text-decoration:none;
+    transition:0.5s ease;
+}
+
+#main-menu li a:hover, #main-menu li a:focus {
+    background: var(--menubghover);
+    color:var(--menucolorhover);
+    transition:0.5s ease;
+}
+
+/* Content styling */
+
+main {
+    margin-top:10px;
+    background:var(--block);
+    padding:15px;
+}
+
+main h1 {
+    font:1.8em var(--headerfont);
+    color:var(--h1);
+    margin:0 0 10px 0;
+}
+
+main h2 {
+    font:1.5em var(--headerfont);
+    color:var(--h2);
+    margin:20px 0 10px 0;
+}
+
+main h3 {
+    font:1.3em var(--headerfont);
+    color:var(--h3);
+}
+
+main h4 {
+    font:1em var(--headerfont);
+    font-style:italic;
+    color:var(--h4);
+}
+
+p {
+    line-height:1.5;
+    margin:10px 0 10px 0;
+}
+
+main a {
+    color:var(--link);
+    transition:0.5s ease;
+}
+
+main a:hover, main a:focus {
+    color:var(--linkhover);
+    transition:0.5s ease;
+}
+
+main ul {
+    list-style-position: outside;
+    margin-left: 25px;
+}
+
+main ul li {
+    line-height:1.5;
+}
+
+main img {
+    max-width:100%;
+}
+
+main input, textarea, select, button { 
+    background: var(--block);  
+    color: var(--color);
+    font: 1rem var(--bodyfont); 
+    border: 1px solid; 
+    padding: 8px; 
+    margin: 2px;
+}
+
+main blockquote, main .box {
+    padding:10px;
+    border-left:20px solid var(--link);
+}
+
+main details {
+    background:rgb(0,0,0,0.1);
+    padding:10px;
+    margin:10px 0 10px 0;
+}
+
+main details summary {
+    cursor:pointer;
+}
+
+#main-footer {
+    text-align:center;
+    padding:15px;
+    color:var(--footer);
+}
+
+#main-footer a {
+    color:var(--footerlink);
+    transition:0.5s ease;
+}
+
+#main-footer a:hover, #main-footer a:focus {
+    color:var(--footerlinkhover);
+    transition:0.5s ease;
+}
+
+/* The following CSS ONLY applies to mobile/small screens */
+
+/* Container styling */
+#container {
+    width: calc(100% - 20px);
+    padding:10px;
+    margin-top:10px;
+}
+
+#banner-content {
+    width: calc(100% - 20px);
+}
+
+#main-menu li {
+    margin-bottom:15px;
+    display:inline-block;
+}
+
+/* Skip to content button */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--block);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+/* The following CSS ONLY applies to desktop/big screens */
+
+@media screen and (min-width: 800px) {
+    #container {
+        max-width:800px;
+        width:90%;
+        margin:25px auto 0 auto;
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    #main-header {
+        flex: 1 1 100%;
+        text-align:left;
+    }
+
+    #main-menu {
+        flex: 1 1 100%;
+        text-align:left;
+    }
+
+    #banner {
+        flex: 1 1 calc(25% - 20px);
+        margin-top:10px;
+        height:500px;
+        background:var(--banner-image-desktop);
+        background-position:var(--banner-position-desktop);
+    }
+
+    main {
+        flex: 1 1 calc(75% - 30px);
+        overflow:auto;
+        height:calc(500px - 30px);
+    }
+    
+    #main-footer {
+        flex: 1 1 calc(100% - 30px);
+    }
+}
+</style>
+</head>
+<body>
+<!-- Don't delete these 2 lines! -->
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+
+<div id="container">
+<header id="main-header"><!-- Site title -->
+Cardboard box</header>
+<nav id="main-menu">
+<ul>
+    <!--Menu links-->
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
+</nav>
+
+<div id="banner">
+<!--This is the banner image, don't put anything here-->
+</div>
+
+<main id="content">
+<!--Content goes here-->
+<h1>Header 1</h1>
+<p>This is the layout of my <a href="http://fan.kalechips.net/birding">birding fanlisting</a>. It's an imitation of the fixed-height container layouts that used to be popular, but it expands to full size on mobile. The banner image will also resize and relocate to sit horizontally on top of the content area! Like magic!</p>
+
+<p>You'll probably have to screw around with background positioning to get the banner to work (a relatively square image works best if you want it to multitask). Or just make 2 separate banner images! The code accommodates that. The world is your oyster.</p>
+
+<p>You can <a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/panorama.html">copy the source on Github</a> or just rip it from your browser.</p>
+
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+<p><a href="">That's a link</a></li>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+	<option selected>Selection</option>
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<ul>
+	<li>This</li>
+	<li>is</li>
+	<li>a</li>
+	<li>list
+	<ul>
+		<li>List</li>
+		<li>inside</li>
+		<li>of</li>
+		<li>list</li>
+	</ul></li>
+</ul>
+
+</main>
+
+<footer id="main-footer">
+<!--Footer goes here-->
+<p>Footer text</p>
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#main-menu">Back to menu</a></p>
+</footer>
+</div>
+</body>
+</html>
