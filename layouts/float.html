@@ -99,7 +99,7 @@ body {
     border-bottom: 1px solid var(--color); 
 }
 
-#content a:hover { 
+#content a:hover, #content a:focus { 
     color: var(--linkhover); 
 }
 
@@ -199,7 +199,7 @@ textarea, input, select, button {
 
 #navigation { 
     flex-basis: calc(35% - 30px);
-    font-size:1em;
+    font-size:0.9em;
     text-transform: lowercase; 
     margin-top: 100px;
 }
@@ -228,10 +228,10 @@ textarea, input, select, button {
 }
 
 #navigation a {
-    min-width:5em;
+    min-width:6em;
 }
 
-#navigation a:hover { 
+#navigation a:hover, #navigation a:focus, #skip a:hover, #skip a:focus { 
     color: var(--navlinkhover); 
     background: var(--navlinkhoverbg); 
 }
