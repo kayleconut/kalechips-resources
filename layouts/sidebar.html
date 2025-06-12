@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Kalechips</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<style>
+:root {
+    --bodyfont: sans-serif;
+    --headerfont: serif;
+    --titlefont: serif;
+
+    --pagebg: url(/assets/backgrounds/black-thread-light.png) #945600;
+
+	--boxbg:#fcf0e0;
+	--color:#1f0d04;
+	--headers:#1f0d04;
+	
+	--link:#621B00;
+	--linkhover:#C75000;
+
+    --titlecolor:#fcf0e0;
+
+	--sidebarbg: rgb(0,0,0,0.3);
+	--menubg:#2F1000;
+	--menucolor:#df932a;
+    --menubghover:#2F1000;
+    --menucolorhover:#fbc171;
+    --menuborder:#621B00;
+	
+	--formbg:#f1dec4;
+	--formcolor:#621B00;
+	
+	--detailsbg:#f1dec4;
+	--hr:#621B00;
+
+}
+
+* { margin: 0; padding: 0; transition:background 0.5s ease, color 0.5s ease; }
+img { margin:2px; max-width: 100%; height:auto; }
+
+body { 
+    background: var(--pagebg);
+    color:var(--color);
+    font: 1rem sans-serif; 
+    letter-spacing:.5px;
+}
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--boxbg);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+#container {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
+/* MENU */
+
+#sidebar-container {
+    flex: 1 1 calc(10% - 20px);
+    min-width: 150px;
+    box-shadow:1px 1px 3px rgb(0,0,0,0.5);
+    background:var(--sidebarbg);
+}
+
+#sidebar {
+    position:sticky;
+    width: calc(100% - 20px);
+    padding:10px;
+    text-align:center;
+    font:1.2rem var(--headerfont);
+    top:10px;
+}
+
+#main-navigation ul { list-style-type:none; }
+#main-navigation li { margin-bottom:5px; }
+
+#main-navigation li a {
+    text-decoration: none; 
+    display:inline-block;
+    width:90%;
+    background:var(--menubg);
+    padding:5px;
+    text-align:center;
+    color:var(--menucolor);
+    border: 0.5px solid var(--menuborder);
+}
+
+#main-navigation li a:hover, nav li a:focus {
+    background:var(--menubghover);
+    color:var(--menucolorhover);
+}
+
+/* HEADER */
+
+#main-header {
+    font: 1.5em var(--titlefont);
+    color: var(--titlecolor);
+    font-style: italic;
+}
+
+/* CONTENT */
+
+main {
+    padding:10px;
+    display:flex;
+    flex-wrap:wrap;
+    flex: 1 1 calc(85% - 20px);
+}
+
+main section, #footer {
+    padding:15px;
+    margin:12px;
+    background: var(--boxbg);
+    box-shadow:1px 1px 1px rgb(0,0,0,0.5);
+}
+
+
+#footer {
+    text-align:center;
+    margin-top:20px;
+    flex: 1 1 100%;
+    padding:15px;
+    background: var(--boxbg);
+    box-shadow:1px 1px 1px rgb(0,0,0,0.5);
+}
+
+main a {
+    color:var(--link);
+}
+
+main a:hover, main a:focus {
+    color: var(--linkhover);
+}
+
+main a img:hover, main a:focus img {
+    opacity:0.7;
+}
+
+main p {
+    margin:10px 0px 10px 0px;
+    line-height:1.4;
+}
+
+main h1 {
+    font:2em var(--headerfont);
+    margin:5px 0 5px 0;
+    color:var(--headers);
+}
+
+main h2 {
+    margin:10px 0 10px 0;
+    font:1.7em var(--headerfont);
+    color:var(--headers);
+}
+
+main h3 {
+    margin:5px 0 5px 0;
+    font: 1.4em var(--headerfont);
+    color:var(--headers);
+}
+
+main h4 {
+    font:1.2em var(--headerfont);
+    margin:5px 0 5px 0;
+    color:var(--headers);
+}
+
+main input, textarea, select, button { 
+    background: var(--formbg);  
+    color: var(--formcolor);
+    font: 1rem var(--bodyfont); 
+    border: 1px solid var(--hr); 
+    padding: 5px; 
+    margin: 5px;
+}
+
+main ul, ol { 
+    list-style-position: outside;
+}
+
+main li {
+    margin:5px 0 5px 0;
+    line-height:1.4;
+    margin-left: 30px;
+}
+
+main summary {
+    cursor:pointer;
+    margin: 5px 0px 5px 0px;
+}
+
+main details {
+    padding:8px;
+    background:var(--detailsbg);
+    margin:5px 0 5px 0;
+    border-radius:5px;
+}
+
+main hr {
+    border:0.5px solid var(--hr);
+    margin:20px;
+}
+
+
+/* FLEX AND GRID */
+
+.flexcontainer {
+    display:flex;
+    flex-wrap:wrap;
+    margin:auto;
+}
+
+.full { flex: 1 1 calc(100% - 30px);}
+.half { flex: 1 1 calc(50% - 55px); }
+.third { flex: 1 1 calc(33% - 55px); }
+.twothird { flex: 1 1 calc(66% - 55px); }
+.quarter { flex: 1 1 calc(25% - 60px); }
+.threequarter { flex: 1 1 calc(75% - 55px); }
+
+.gridcontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    margin:auto;
+}
+
+@media screen and (max-width: 1024px) {    
+    main {
+        padding:0;
+        flex: 0 0 100%;
+        display:block;
+    }
+
+    .flexcontainer {
+        display:block;
+    }
+
+    #footer {
+        margin-top: 20px;
+    }
+
+    #sidebar-container {
+        flex:0 0 100%;
+    }
+    
+    #sidebar {
+        position:relative;
+        height:auto;
+        text-align:center;
+        margin-bottom:1em;
+    }
+
+    #main-navigation li {
+        display:inline-block;
+        margin-bottom:.75em;
+    }
+    
+    #main-navigation li a {
+        display: inline;
+    }
+}
+</style>
+
+
+</head>
+<body>
+<div id="top"></div>
+<div id="skip"><a href="#content">Skip to content</a></div>
+<div id="container">
+
+<div id="sidebar-container">
+<div id="sidebar">
+<header id="main-header">Site title</header>
+
+<nav id="main-navigation">
+<ul>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+    <li><a href="">Link</a></li>
+</ul>
+</nav>
+</div>
+</div>
+
+<main id="content">
+<!-- Section tags must be used for blocks -->
+<section class="full">
+<h1>Header</h1>
+<p>This is the base code for Kalechips version 3, with a fixed left sidebar and flex columns in the content area. I'm still fond of this design! It takes advantage of the nice big screens a lot of people have nowadays.</p>
+
+<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/flex.html">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
+</section>
+
+<section class="half">
+<h2>Half-width section</h2>
+<p>This is a half-width section. All sections, regardless of their grid size, will take up the entire screen width on small screens (under 1024px wide). </p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>This is a quarter-width section. </p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>You can use 2 of these with a half-width section or 1 with a 3/4 width section.</p>
+</section>
+
+<section class="third">
+<h2>Third-width section</h2>
+<p>This is a third-width section.</p>
+<ul>
+    <li>This</li>
+    <li>is</li>
+    <li>a</li>
+    <li>list
+    <ul>
+        <li>List</li>
+        <li>inside</li>
+        <li>of</li>
+        <li>list</li>
+    </ul></li>
+</ul>
+</section>
+
+<section class="twothird">
+<h2>2/3-width section</h2>
+<p>This is a 2/3-width section. <a href="">This is a link.</a></p>
+
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+
+<p><input type="text" value="Input" /></p>
+<p><select>
+    <option selected>Selection</option>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+</select></p>
+<p><textarea>Textarea</textarea></p>
+<p><button type="button">Button</button></p>
+
+<details><summary>Details element</summary>
+<p>Text!</p></details>
+</section>
+
+<section class="threequarter">
+<h2>3/4-width section</h2>
+<p>This is a 3/4-width section.</p>
+</section>
+
+<section class="quarter">
+<h2>Quarter-width section</h2>
+<p>Are you bored yet?</p>
+</section>
+
+<footer id="footer">
+<p>Footer text</p>
+<p><a href="#top">Back to top</a> <span aria-hidden="true">&bull;</span> <a href="#main-menu">Back to menu</a></p>
+</footer>
+</main>
+</div>
+</body>
+</html>
