@@ -244,6 +244,7 @@ footer {
     background:var(--footerbg);
     color:var(--footercolor);
     font-size:0.9em;
+    width:calc(100% - 30px);
 }
 
 footer a {
@@ -265,68 +266,30 @@ footer a:hover {
     top:0;
 }
 
-#burger summary {
-    list-style-type: none;
+#burger button {
     cursor: pointer;
-    display:flex;
-    align-items:center;
     color:var(--burger);
     padding:5px;
     background:var(--background);
-}
-
-#burger summary::before, #burger[open]>summary::before {
+    border:none;
+    width:100%;
+    display:block;
     height:40px;
-    width:40px;
-    background:var(--burger);
-}
-
-#burger summary::-webkit-details-marker {
-    display: none;
-}
-
-#burger summary::before {
-    content: '';
-    mask-image:var(--burgericon);
-    -webkit-mask-image:var(--burgericon);
-    mask-size:40px;
-    -webkit-mask-size:40px;
-}
-
-#burger[open]>summary::before {
-    content: '';
-    mask-image:var(--closeicon);
-    -webkit-mask-image:var(--closeicon);
-    mask-size:40px;
-    -webkit-mask-size:40px;
-}
-
-#burger[open] {
-    position:fixed;
-    background:var(--overlay);
-}
-
-.skip a {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}
- 
-.skip a:focus {
-    position:static;
-    width:auto;
-    height:auto;
+    margin:0;
 }
 
 #burger-menu {
-    height:calc(100vh - 70px);
+    height:calc(100vh);
     overflow:auto;
-    z-index:1000;
     background:var(--navbg);
     width:200px;
+    position:fixed;
+    border:0;
+    top:40px;
+}
+
+#burger-menu::backdrop {
+    background:var(--overlay);
 }
 
 /* Accessibility stuff */
@@ -354,7 +317,7 @@ footer a:hover {
 
 @media screen and (max-width: 799px) {
     #container {
-        width:calc(100 - 20px);
+        width:calc(100% - 20px);
         margin-top:50px;
     }
     
@@ -389,6 +352,8 @@ footer a:hover {
 
 </style>
 
+<script src="/assets/hamburger.js"></script>
+
 </head>
 <body>
 <!-- Please don't delete these lines! -->
@@ -396,9 +361,9 @@ footer a:hover {
 <div id="skip"><a href="#content">Skip to content</a></div>
 
 <!-- Begin hamburger menu -->
-<details id="burger">
-<summary id="toggle">Menu</summary>
-<nav id="burger-menu" class="menu">
+<nav id="burger">
+<button popovertarget="burger-menu">Menu</button>
+<div id="burger-menu" class="menu" popover="auto">
 <!-- This should contain the same stuff as the left sidebar below -->
 <h2>Header</h2>
 <ul>
@@ -420,12 +385,8 @@ footer a:hover {
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 </ul>
-
-<ul>
-    <li class="skip"><a href="#toggle">Close menu</a></li>
-</ul>
+</div>
 </nav>
-</details>
 
 <div id="container">
 <!-- Header -->
@@ -503,13 +464,16 @@ footer a:hover {
 <p>Arthropods are invertebrate animals with an exoskeleton, a segmented body, and paired jointed appendages. Arthropods form the phylum Arthropoda.</p>
 </div>
 
+<div class="section">
 <h2>Header</h2>
 <ul>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 <li><a href="">Link</a></li>
 </ul>
+</div>
 
+<div class="section">
 <h2>Header</h2>
 <ul>
 <li><a href="">Link</a></li>
