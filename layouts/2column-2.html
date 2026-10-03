@@ -194,73 +194,39 @@ footer {
     top:0;
 }
 
-#burger summary {
-    list-style-type: none;
+#burger button {
     cursor: pointer;
-    display:flex;
-    align-items:center;
-    color:var(--background);
+    text-align:center;
+    color:var(--burger);
     padding:5px;
     background:var(--background);
-}
-
-#burger summary::before, #burger[open]>summary::before {
+    font-size:1rem;
+    border:0;
+    display:block;
+    width:100%;
     height:40px;
-    width:40px;
-    background:var(--navcolor);
+    margin:0;
+
 }
 
-#burger summary::-webkit-details-marker {
-    display: none;
-}
-
-#burger summary::before {
-    content: '';
-    mask-image:var(--burgericon);
-    -webkit-mask-image:var(--burgericon);
-    mask-size:40px;
-    -webkit-mask-size:40px;
-}
-
-#burger[open]>summary::before {
-    content: '';
-    mask-image:var(--closeicon);
-    -webkit-mask-image:var(--closeicon);
-    mask-size:40px;
-    -webkit-mask-size:40px;
-}
-
-#burger[open] {
+#burger-menu:popover-open {
     position:fixed;
-    background:var(--overlay);
-}
-
-.skip a {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}
- 
-.skip a:focus {
-    position:static;
-    width:auto;
-    height:auto;
-}
-
-#burger-menu {
     height:100vh;
     overflow:auto;
     z-index:1000;
     background:var(--navbg);
     width:200px;
+    border:0;
+    top:40px;
 }
 
 #burger-menu .item {
     margin:0;
     padding:10px;
+}
+
+#burger-menu::backdrop {
+    background:var(--overlay);
 }
 
 /* Skip to content button */
@@ -303,27 +269,16 @@ footer {
 }
 </style>
 
-<script>
-window.onload = function () {
-    let burger = document.getElementById("burger");
-
-    burger.addEventListener("keydown", (event) => {
-        let key = event.code;
-        if (key == "Escape") {
-            burger.removeAttribute("open");
-        }
-    });
-};
-</script>
+<script src="/assets/hamburger.js"></script>
 </head>
 <body>
 <!-- SKIP TO CONTENT BUTTON, DO NOT DELETE -->
 <div id="skip"> <a href="#content">Skip to content</a> </div>
 
 <!-- START HAMBURGER MENU -->
-<details id="burger">
-<summary id="toggle">Menu</summary>
-<nav id="burger-menu" class="menu">
+<nav id="burger">
+<button popovertarget="burger-menu">Menu</button>
+<div id="burger-menu" class="menu" popover="auto">
 <!-- Make sure everything in here matches with the contents of the sidebar -->
 <div class="item">
 <h2>Header</h2> 
@@ -351,13 +306,8 @@ window.onload = function () {
     <li><a href="">Link</a></li>
 </ul>
 </div>
-
-<!-- Don't delete this -->
-<ul>
-    <li class="skip"><a href="#toggle">Close menu</a></li>
-</ul>
+</div>
 </nav>
-</details>
 <!-- END HAMBURGER MENU -->
 
 <div id="container">
@@ -402,7 +352,7 @@ window.onload = function () {
 <h1>Header</h1>
 <p>This is the skeleton of the first layout I made for this website. I ended up with more pages than would be reasonable to put on a sidebar, so I scrapped the 2-column layout for the single column thing you see now. But it still works, so I figured I'd clean it up and release it, so here we are!</p>
 
-<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/2column-1.html">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
+<p><a href="https://github.com/kayleconut/kalechips-resources/blob/main/layouts/2column-2.html">You can copy the source code for this from Github!</a> Or just take it from the view source page directly.</p>
 
 <h2>Mobile compatibility</h2>
 <p>This version of the layout collapses into a single column on screens smaller than 800px wide and displays the sidebar as a hamburger menu. The icons for the hamburger menu can be downloaded on the <a href="/stuff/snippets?p=burger">snippet page</a>, or you can make your own .svg files to use! Make sure to copy your code in the sidebar into the hamburger menu as well! For the version with columns on all screen sizes, go to the <a href="2column-1.html">first version.</a></p>
